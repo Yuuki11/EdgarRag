@@ -1,0 +1,206 @@
+# ═══════════════════════════════════════════════════════════════════
+# FinEdgar .gitignore
+#
+# Verified behaviour (as of last audit): a fresh `git add -A` tracks
+# ~85 files / ~3.5 MB — source, docs, configs, and small eval JSONs.
+# Everything else (model weights, FAISS indices, raw filings, caches,
+# node_modules, wandb runs) is excluded.
+# ═══════════════════════════════════════════════════════════════════
+
+# ───────────────────── Secrets ──────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+id_rsa
+id_rsa.*
+id_dsa
+id_dsa.*
+id_ed25519
+id_ed25519.*
+credentials.json
+credentials*.json
+*.credentials
+secrets.yaml
+secrets.yml
+docker/admin/users.yml
+
+# ───────────────────── Python ──────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+.Python
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pytype/
+.ruff_cache/
+.ipynb_checkpoints/
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+.venv/
+venv/
+env/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ─────────────── Coverage / profiling / bench ───────
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.hypothesis/
+.tox/
+.nox/
+nosetests.xml
+*.prof
+*.lprof
+*.pstats
+profile_output*
+flamegraph*.svg
+
+# ──────────── Unsloth / HF / Torch caches ──────────
+unsloth_compiled_cache/
+.cache/
+.hf_cache/
+*.safetensors.partial
+*.bin.partial
+
+# ─────────────────── Experiment logs ───────────────
+wandb/
+mlruns/
+lightning_logs/
+tb_logs/
+tensorboard/
+runs/
+events.out.tfevents.*
+
+# ─────────────── Model outputs (large) ─────────────
+outputs/**/checkpoint-*/
+outputs/**/lora-final/
+outputs/**/*.safetensors
+outputs/**/*.bin
+outputs/**/*.pt
+outputs/**/*.pth
+outputs/**/optimizer.pt
+outputs/**/scheduler.pt
+outputs/**/rng_state.pth
+outputs/**/trainer_state.json
+outputs/**/training_args.bin
+# Keep eval_runs/*.json + results.csv — small, they track progress.
+!outputs/eval_runs/
+!outputs/eval_runs/**
+
+# ──────── Generated data artifacts (large) ─────────
+# Raw SEC HTML, parsed sections, tokenized chunks, FAISS indices,
+# XBRL fact caches, and training JSONLs are all reproducible from
+# the pipeline — don't ship them in git.
+data/filings/
+data/parsed/
+data/chunks/
+data/vector_index/
+data/xbrl_cache/
+data/training/
+# Keep companies.json, company_overrides.json, benchmarks/, and the
+# small ticker manifest — those are authoritative source data.
+
+# ──────────────────── Model weights ────────────────
+model/gguf/
+model/gguf_gguf/
+*.gguf
+*.ggml
+*.pt
+*.pth
+*.ckpt
+
+# ──────────────────── Webapp (Node) ────────────────
+webapp/frontend/node_modules/
+webapp/frontend/dist/
+webapp/frontend/dist-ssr/
+webapp/frontend/.vite/
+webapp/frontend/.vite-cache/
+webapp/frontend/coverage/
+*.tsbuildinfo
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.npm/
+.yarn/
+.pnp.*
+.parcel-cache/
+
+# ─────────────────── Logs / debug ──────────────────
+*.log
+logs/
+*.log.*
+debug.log
+error.log
+
+# ─────────────────── Backups / patches ─────────────
+*.bak
+*.backup
+*.orig
+*.rej
+*~
+*.swp
+*.swo
+*.swn
+
+# ─────────────────── Archives (usually unwanted) ───
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.tar.bz2
+*.tbz2
+*.tar.xz
+*.txz
+*.7z
+*.rar
+*.gz
+*.bz2
+*.xz
+
+# ─────────────────── Temp / scratch ────────────────
+*.tmp
+*.temp
+*.cache
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ──────────────────── Editor / IDE ─────────────────
+.vscode/
+!.vscode/settings.json.example
+.idea/
+*.sublime-workspace
+*.sublime-project
+.project
+.classpath
+.settings/
+tags
+TAGS
+.direnv/
+.codex
+
+# ──────────── Core dumps / crash reports ───────────
+core
+core.*
+*.core
+*.dmp
