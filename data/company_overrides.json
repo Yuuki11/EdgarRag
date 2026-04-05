@@ -1,0 +1,16 @@
+[
+  {
+    "ticker": "ATVI",
+    "cik": "0000718877",
+    "name": "Activision Blizzard, Inc.",
+    "sector": "Communication Services",
+    "status": "historical"
+  },
+  {
+    "ticker": "FL",
+    "cik": "0000850209",
+    "name": "Foot Locker, Inc.",
+    "sector": "Consumer Discretionary",
+    "status": "active"
+  }
+]

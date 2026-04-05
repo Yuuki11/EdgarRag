@@ -1,0 +1,237 @@
+[
+  {
+    "ticker": "AAPL",
+    "name": "Apple Inc.",
+    "sector": "Technology"
+  },
+  {
+    "ticker": "ADBE",
+    "name": "ADOBE INC.",
+    "sector": "Unknown"
+  },
+  {
+    "ticker": "AES",
+    "name": "AES CORP",
+    "sector": "Unknown"
+  },
+  {
+    "ticker": "AMCR",
+    "name": "Amcor plc",
+    "sector": "Unknown"
+  },
+  {
+    "ticker": "AMD",
+    "name": "Advanced Micro Devices Inc.",
+    "sector": "Technology"
+  },
+  {
+    "ticker": "AMZN",
+    "name": "Amazon.com Inc.",
+    "sector": "Consumer Discretionary"
+  },
+  {
+    "ticker": "ATVI",
+    "name": "Activision Blizzard, Inc.",
+    "sector": "Communication Services"
+  },
+  {
+    "ticker": "AWK",
+    "name": "American Water Works Company, Inc.",
+    "sector": "Unknown"
+  },
+  {
+    "ticker": "AXP",
+    "name": "AMERICAN EXPRESS CO",
+    "sector": "Unknown"
+  },
+  {
+    "ticker": "BA",
+    "name": "Boeing Company",
+    "sector": "Industrials"
+  },
+  {
+    "ticker": "BAC",
+    "name": "Bank of America Corporation",
+    "sector": "Financials"
+  },
+  {
+    "ticker": "BBY",
+    "name": "BEST BUY CO INC",
+    "sector": "Unknown"
+  },
+  {
+    "ticker": "CAT",
+    "name": "Caterpillar Inc.",
+    "sector": "Industrials"
+  },
+  {
+    "ticker": "COST",
+    "name": "COSTCO WHOLESALE CORP /NEW",
+    "sector": "Unknown"
+  },
+  {
+    "ticker": "CRM",
+    "name": "Salesforce Inc.",
+    "sector": "Technology"
+  },
+  {
+    "ticker": "CVS",
+    "name": "CVS HEALTH Corp",
+    "sector": "Unknown"
+  },
+  {
+    "ticker": "CVX",
+    "name": "Chevron Corporation",
+    "sector": "Energy"
+  },
+  {
+    "ticker": "DIS",
+    "name": "Walt Disney Company",
+    "sector": "Communication Services"
+  },
+  {
+    "ticker": "FL",
+    "name": "Foot Locker, Inc.",
+    "sector": "Consumer Discretionary"
+  },
+  {
+    "ticker": "GIS",
+    "name": "GENERAL MILLS INC",
+    "sector": "Unknown"
+  },
+  {
+    "ticker": "GLW",
+    "name": "CORNING INC /NY",
+    "sector": "Unknown"
+  },
+  {
+    "ticker": "GOOGL",
+    "name": "Alphabet Inc.",
+    "sector": "Technology"
+  },
+  {
+    "ticker": "GS",
+    "name": "Goldman Sachs Group Inc.",
+    "sector": "Financials"
+  },
+  {
+    "ticker": "INTC",
+    "name": "Intel Corporation",
+    "sector": "Technology"
+  },
+  {
+    "ticker": "JNJ",
+    "name": "Johnson & Johnson",
+    "sector": "Healthcare"
+  },
+  {
+    "ticker": "JPM",
+    "name": "JPMorgan Chase & Co.",
+    "sector": "Financials"
+  },
+  {
+    "ticker": "KHC",
+    "name": "Kraft Heinz Co",
+    "sector": "Unknown"
+  },
+  {
+    "ticker": "KO",
+    "name": "Coca-Cola Company",
+    "sector": "Consumer Staples"
+  },
+  {
+    "ticker": "LMT",
+    "name": "LOCKHEED MARTIN CORP",
+    "sector": "Unknown"
+  },
+  {
+    "ticker": "META",
+    "name": "Meta Platforms Inc.",
+    "sector": "Technology"
+  },
+  {
+    "ticker": "MGM",
+    "name": "MGM Resorts International",
+    "sector": "Unknown"
+  },
+  {
+    "ticker": "MMM",
+    "name": "3M CO",
+    "sector": "Unknown"
+  },
+  {
+    "ticker": "MSFT",
+    "name": "Microsoft Corporation",
+    "sector": "Technology"
+  },
+  {
+    "ticker": "NFLX",
+    "name": "Netflix Inc.",
+    "sector": "Communication Services"
+  },
+  {
+    "ticker": "NKE",
+    "name": "NIKE, Inc.",
+    "sector": "Unknown"
+  },
+  {
+    "ticker": "NVDA",
+    "name": "NVIDIA Corporation",
+    "sector": "Technology"
+  },
+  {
+    "ticker": "PEP",
+    "name": "PEPSICO INC",
+    "sector": "Unknown"
+  },
+  {
+    "ticker": "PFE",
+    "name": "Pfizer Inc.",
+    "sector": "Healthcare"
+  },
+  {
+    "ticker": "PG",
+    "name": "Procter & Gamble Company",
+    "sector": "Consumer Staples"
+  },
+  {
+    "ticker": "PYPL",
+    "name": "PayPal Holdings, Inc.",
+    "sector": "Unknown"
+  },
+  {
+    "ticker": "TSLA",
+    "name": "Tesla Inc.",
+    "sector": "Consumer Discretionary"
+  },
+  {
+    "ticker": "ULTA",
+    "name": "Ulta Beauty, Inc.",
+    "sector": "Unknown"
+  },
+  {
+    "ticker": "UNH",
+    "name": "UnitedHealth Group Inc.",
+    "sector": "Healthcare"
+  },
+  {
+    "ticker": "VZ",
+    "name": "VERIZON COMMUNICATIONS INC",
+    "sector": "Unknown"
+  },
+  {
+    "ticker": "WMT",
+    "name": "Walmart Inc.",
+    "sector": "Consumer Staples"
+  },
+  {
+    "ticker": "XOM",
+    "name": "Exxon Mobil Corporation",
+    "sector": "Energy"
+  },
+  {
+    "ticker": "XYZ",
+    "name": "Block, Inc.",
+    "sector": "Unknown"
+  }
+]
