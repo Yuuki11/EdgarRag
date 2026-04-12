@@ -1,0 +1,3366 @@
+{
+  "summary": {
+    "total_questions": 150,
+    "official_correct": 28,
+    "official_accuracy": 0.18666666666666668,
+    "internal_correct": 34,
+    "internal_accuracy": 0.22666666666666666,
+    "avg_retrieval_recall_at_5": 0.33180004069414903,
+    "avg_latency_ms": 715.0512757524848,
+    "total_elapsed_s": 107.33524489402771,
+    "route_breakdown": {
+      "xbrl": {
+        "total": 55,
+        "official_correct": 3,
+        "internal_correct": 6,
+        "official_accuracy": 0.05454545454545454,
+        "internal_accuracy": 0.10909090909090909
+      },
+      "rag": {
+        "total": 95,
+        "official_correct": 25,
+        "internal_correct": 28,
+        "official_accuracy": 0.2631578947368421,
+        "internal_accuracy": 0.29473684210526313
+      }
+    },
+    "subset_filter": null,
+    "scorer": "official"
+  },
+  "results": [
+    {
+      "financebench_id": "financebench_id_03029",
+      "question": "What is the FY2018 capital expenditure amount (in USD millions) for 3M? Give a response to the question by relying on the details shown in the cash flow statement.",
+      "ticker": "MMM",
+      "years": [
+        2018
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "capital expenditure"
+      ],
+      "predicted": "$1.58 billion",
+      "gold": "$1577.00",
+      "official_correct": false,
+      "internal_correct": true,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 34.551526012364775,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_04672",
+      "question": "Assume that you are a public equities analyst. Answer the following question by primarily using information that is shown in the balance sheet: what is the year end FY2018 net PPNE for 3M? Answer in USD billions.",
+      "ticker": "MMM",
+      "years": [
+        2018
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "$60.1",
+      "gold": "$8.70",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.28191489361702127,
+      "latency_ms": 11921.243017015513,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00499",
+      "question": "Is 3M a capital-intensive business based on FY2022 data?",
+      "ticker": "MMM",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "Yes, 3M is a capital-intensive business. (Source 1, Paragraph 2)",
+      "gold": "No, the company is managing its CAPEX and Fixed Assets pretty efficiently, which is evident from below key metrics:\nCAPEX/Revenue Ratio: 5.1%\nFixed assets/Total Assets: 20%\nReturn on Assets= 12.4%",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.30256410256410254,
+      "latency_ms": 691.6246750042774,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01226",
+      "question": "What drove operating margin change as of FY2022 for 3M? If operating margin is not a useful metric for a company like this, then please state that and explain why.",
+      "ticker": "MMM",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [],
+      "predicted": "3.7%",
+      "gold": "Operating Margin for 3M in FY2022 has decreased by 1.7% primarily due to: \n-Decrease in gross Margin\n-mostly one-off charges including Combat Arms Earplugs litigation, impairment related to exiting PFAS manufacturing, costs related to exiting Russia and divestiture-related restructuring\ncharges",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.5522388059701493,
+      "latency_ms": 500.88420702377334,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01865",
+      "question": "If we exclude the impact of M&A, which segment has dragged down 3M's overall growth in 2022?",
+      "ticker": "MMM",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "3M's overall growth was dragged down by the Consumer business. (Source 1, Table 1)",
+      "gold": "The consumer segment shrunk by 0.9% organically.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.8148148148148148,
+      "latency_ms": 623.3404679805972,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00807",
+      "question": "Does 3M have a reasonably healthy liquidity profile based on its quick ratio for Q2 of FY2023? If the quick ratio is not relevant to measure liquidity, please state that and explain why.",
+      "ticker": "MMM",
+      "years": [
+        2023
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [],
+      "predicted": "No, 3M's quick ratio for Q2 of FY2023 is not provided in the provided context, so it cannot be assessed.",
+      "gold": "No. The quick ratio for 3M was 0.96 by Jun'23 close, which needs a bit of an improvement to touch the 1x mark",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.3181818181818182,
+      "latency_ms": 686.9216139893979,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00941",
+      "question": "Which debt securities are registered to trade on a national securities exchange under 3M's name as of Q2 of 2023?",
+      "ticker": "MMM",
+      "years": [
+        2023
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "3M's debt securities are registered on the U.S. National Securities Exchange (NYSE) under the ticker symbol 3M.",
+      "gold": "Following debt securities registered under 3M's name are listed to trade on the New York Stock Exchange:\n-1.500% Notes due 2026 (Trading Symbol: MMM26)\n-1.750% Notes due 2030 (Trading Symbol: MMM30)\n-1.500% Notes due 2031 (Trading Symbol: MMM31)",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.36363636363636365,
+      "latency_ms": 653.1628129887395,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01858",
+      "question": "Does 3M maintain a stable trend of dividend distribution?",
+      "ticker": "MMM",
+      "years": [
+        2023
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "compare",
+      "metrics": [],
+      "predicted": "No, 3M does not maintain a stable trend of dividend distribution. Source: [Source 1: MMM FY2023 \u2014 Dividend Payments]",
+      "gold": "Yes, not only they distribute the dividends on a routine basis, 3M has also been increasing the per share dividend for consecutive 65 years",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.375,
+      "latency_ms": 738.5342289926484,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_02987",
+      "question": "What is the FY2019 fixed asset turnover ratio for Activision Blizzard? Fixed asset turnover ratio is defined as: FY2019 revenue / (average PP&E between FY2018 and FY2019). Round your answer to two decimal places. Base your judgments on the information provided primarily in the statement of income and the statement of financial position.",
+      "ticker": "ATVI",
+      "years": [
+        2019
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "revenue"
+      ],
+      "predicted": "$1.77",
+      "gold": "24.26",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.25203252032520324,
+      "latency_ms": 585.2417270070873,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_07966",
+      "question": "What is the FY2017 - FY2019 3 year average of capex as a % of revenue for Activision Blizzard? Answer in units of percents and round to one decimal place. Calculate (or extract) the answer from the statement of income and the cash flow statement.",
+      "ticker": "ATVI",
+      "years": [
+        2019
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [
+        "capex",
+        "revenue"
+      ],
+      "predicted": "27.6% (Source 1, Section 2.1)",
+      "gold": "1.9%",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.25435540069686413,
+      "latency_ms": 572.503975010477,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_04735",
+      "question": "You are an investment banker and your only resource(s) to answer the following question is (are): the statement of financial position and the cash flow statement. Here's the question: what is the FY2015 operating cash flow ratio for Adobe? Operating cash flow ratio is defined as: cash from operations / total current liabilities. Round your answer to two decimal places.",
+      "ticker": "ADBE",
+      "years": [
+        2015
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "cash",
+        "operating cash flow",
+        "total current liabilities"
+      ],
+      "predicted": "2.11",
+      "gold": "0.66",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.5265588914549654,
+      "latency_ms": 631.087071960792,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_07507",
+      "question": "What is Adobe's year-over-year change in unadjusted operating income from FY2015 to FY2016 (in units of percents and round to one decimal place)? Give a solution to the question by using the income statement.",
+      "ticker": "ADBE",
+      "years": [
+        2016
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "operating income"
+      ],
+      "predicted": "$1.49 billion",
+      "gold": "65.4%",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 28.56923296349123,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_03856",
+      "question": "What is the FY2017 operating cash flow ratio for Adobe? Operating cash flow ratio is defined as: cash from operations / total current liabilities. Round your answer to two decimal places. Please utilize information provided primarily within the balance sheet and the cash flow statement.",
+      "ticker": "ADBE",
+      "years": [
+        2017
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "cash",
+        "operating cash flow",
+        "total current liabilities"
+      ],
+      "predicted": "2.11",
+      "gold": "0.83",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.3171912832929782,
+      "latency_ms": 561.0470990068279,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00438",
+      "question": "Does Adobe have an improving operating margin profile as of FY2022? If operating margin is not a useful metric for a company like this, then state that and explain why.",
+      "ticker": "ADBE",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [],
+      "predicted": "No, Adobe's operating margin has not shown an improving trend as of FY2022.\n\nOperating margin is not a useful metric for a company like this because its revenue and expenses are highly dependent on the timing of software license renewals, upgrades, and new customer acquisitions, which are not always linear. For example, the timing of large software sales or renewals can cause significant fluctuations in revenue and expenses that do not reflect underlying business performance.",
+      "gold": "No the operating margins of Adobe have recently declined from 36.8% in FY 2021 to 34.6% in FY2022. A drop by 2.2% in a year.",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.25,
+      "latency_ms": 991.8940220377408,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00591",
+      "question": "Does Adobe have an improving Free cashflow conversion as of FY2022?",
+      "ticker": "ADBE",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "No, Adobe's Free Cashflow conversion did not improve as of FY2022. (Source 1, Table 1)",
+      "gold": "Yes, the FCF conversion (using net income as the denominator) for Adobe has improved by ~13% from 143% in 2021 to 156% in 2022",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.3939393939393939,
+      "latency_ms": 705.2808009902947,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01319",
+      "question": "What is the quantity of restructuring costs directly outlined in AES Corporation's income statements for FY2022? If restructuring costs are not explicitly outlined then state 0.",
+      "ticker": "AES",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [],
+      "predicted": "$546 million (Source 1, Table 1)",
+      "gold": "0",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.49324324324324326,
+      "latency_ms": 513.4566589840688,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00540",
+      "question": "Roughly how many times has AES Corporation sold its inventory in FY2022? Calculate inventory turnover ratio for the FY2022; if conventional inventory management is not meaningful for the company then state that and explain why.",
+      "ticker": "AES",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "inventory"
+      ],
+      "predicted": "1.5 times. Source: AES FY2022 \u2014 Financial Statements and Supplementary Data",
+      "gold": "AES has converted inventory 9.5 times in FY 2022.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.4230769230769231,
+      "latency_ms": 593.5996180051006,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_10420",
+      "question": "Based on the information provided primarily in the statement of financial position and the statement of income, what is AES's FY2022 return on assets (ROA)? ROA is defined as: FY2022 net income / (average total assets between FY2021 and FY2022). Round your answer to two decimal places.",
+      "ticker": "AES",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "ratio",
+      "metrics": [
+        "net income",
+        "total assets"
+      ],
+      "predicted": "0.0030",
+      "gold": "-0.02",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 72.49374297680333,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_06655",
+      "question": "What is Amazon's FY2017 days payable outstanding (DPO)? DPO is defined as: 365 * (average accounts payable between FY2016 and FY2017) / (FY2017 COGS + change in inventory between FY2016 and FY2017). Round your answer to two decimal places. Address the question by using the line items and information shown within the balance sheet and the P&L statement.",
+      "ticker": "AMZN",
+      "years": [
+        2017
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [
+        "accounts payable",
+        "inventory"
+      ],
+      "predicted": "24.78",
+      "gold": "93.86",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.344,
+      "latency_ms": 576.5437699737959,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_08135",
+      "question": "What is Amazon's year-over-year change in revenue from FY2016 to FY2017 (in units of percents and round to one decimal place)? Calculate what was asked by utilizing the line items clearly shown in the statement of income.",
+      "ticker": "AMZN",
+      "years": [
+        2017
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "revenue"
+      ],
+      "predicted": "$35.71 billion",
+      "gold": "30.8%",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 25.684801978059113,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_08286",
+      "question": "By drawing conclusions from the information stated only in the income statement, what is Amazon's FY2019 net income attributable to shareholders (in USD millions)?",
+      "ticker": "AMZN",
+      "years": [
+        2019
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "net income"
+      ],
+      "predicted": "$3.56 billion",
+      "gold": "$11588.00",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 23.311164986807853,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_03882",
+      "question": "What is Amcor's year end FY2020 net AR (in USD millions)? Address the question by adopting the perspective of a financial analyst who can only use the details shown within the balance sheet.",
+      "ticker": "AMCR",
+      "years": [
+        2020
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "$110 million (AMCR FY2020 \u2014 Financial Statements and Supplementary Data)",
+      "gold": "$1616.00",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.41317365269461076,
+      "latency_ms": 678.2316110329702,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01935",
+      "question": "What was the key agenda of the AMCOR's 8k filing dated 1st July 2022?",
+      "ticker": "AMCR",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "The key agenda of the AMCOR's 8k filing dated 1st July 2022 was to discuss the results of its 2022 financial year and its outlook for 2023. (Source 1, Item 8)",
+      "gold": "Amcor Finance (USA), Inc. and Amcor Flexibles North America, Inc., entered into supplemental indentures relating to Guaranteed Senior Notes due 2026 and 2028. This involved the substitution of the Substitute Issuer (Amcor Flexibles North America) for the Former Issuer (Amcor Finance) and the assumption of covenants under the indentures. (In essence a novation agreement)",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.25806451612903225,
+      "latency_ms": 783.9620810118504,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00799",
+      "question": "Has AMCOR's quick ratio improved or declined between FY2023 and FY2022? If the quick ratio is not something that a financial analyst would ask about a company like this, then state that and explain why.",
+      "ticker": "AMCR",
+      "years": [
+        2023
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [],
+      "predicted": "The quick ratio declined from 1.75 in FY2023 to 1.68 in FY2022. (Source 1, Note 2)",
+      "gold": "The quick ratio has slightly improved from 0.67 times to 0.69 times between FY 2023 and FY 2022.(3.4% jump)",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.23204419889502761,
+      "latency_ms": 707.5844099745154,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01079",
+      "question": "What are major acquisitions that AMCOR has done in FY2023, FY2022 and FY2021?",
+      "ticker": "AMCR",
+      "years": [
+        2023
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "Amcor has completed the following acquisitions in FY2023, FY2022, and FY2021:\n\n*   **2023:** Acquired **Mondi Group** (Austria).\n*   **2022:** Acquired **Bayer AG** (Germany).\n*   **2021:** Acquired **Mondi Holding B.V.** (Netherlands).\n\nSource: AMCR FY2023 \u2014 Business",
+      "gold": "Amcor completed these acquisitions during FY2023:\n-100% equity interest of a flexibles manufacturing company in the Czech Republic\n- 100% equity interest in a medical device packaging manufacturing site in\nShanghai, China.\n-acquisition of a New Zealand-based leading manufacturer of state-of-the-art, automated protein\npackaging machines.",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.3697478991596639,
+      "latency_ms": 1120.8439289475791,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01148",
+      "question": "What industry does AMCOR primarily operate in?",
+      "ticker": "AMCR",
+      "years": [
+        2023
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "Packaging",
+      "gold": "Amcor is a global leader in packaging production for various use cases.",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "exact",
+      "retrieval_recall_at_5": 0.5882352941176471,
+      "latency_ms": 464.6555189974606,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00684",
+      "question": "Does AMCOR have an improving gross margin profile as of FY2023? If gross margin is not a useful metric for a company like this, then state that and explain why.",
+      "ticker": "AMCR",
+      "years": [
+        2023
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "gross profit"
+      ],
+      "predicted": "Yes, Amcor has an improving gross margin profile as of FY2023. Gross margin increased from 27.5% in FY2022 to 29.1% in FY2023. (AMCR FY2023 \u2014 Business, Item 1)",
+      "gold": "No. For AMCOR there has been a slight decline in gross margins by 0.8%.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.5405405405405406,
+      "latency_ms": 886.319222045131,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01936",
+      "question": "What is the nature & purpose of AMCOR's restructuring liability as oF Q2 of FY2023 close?",
+      "ticker": "AMCR",
+      "years": [
+        2023
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "The restructuring liability is a liability for costs associated with the restructuring of Amcor's global operations. (AMCR FY2023 \u2014 Business, Item 1)",
+      "gold": "87% of the total restructuring liability is related Employee liabilities.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.4166666666666667,
+      "latency_ms": 478.4103630227037,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01928",
+      "question": "What Was AMCOR's Adjusted Non GAAP EBITDA for FY 2023",
+      "ticker": "AMCR",
+      "years": [
+        2023
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "$10,400 million (Source 1)",
+      "gold": "AMCOR's Adj. EBITDA was $2,018mn in FY 2023",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.2826086956521739,
+      "latency_ms": 538.5988440248184,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01930",
+      "question": "How much was the Real change in Sales for AMCOR in FY 2023 vs FY 2022, if we exclude the impact of FX movement, passthrough costs and one-off items?",
+      "ticker": "AMCR",
+      "years": [
+        2023
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "$1.1 billion",
+      "gold": "The Real Growth was flat in FY 2023 vs FY 2022.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.41818181818181815,
+      "latency_ms": 547.3792579723522,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_03069",
+      "question": "Answer the following question as if you are an equity research analyst and have lost internet connection so you do not have access to financial metric providers. According to the details clearly outlined within the P&L statement and the statement of cash flows, what is the FY2015 depreciation and amortization (D&A from cash flow statement) % margin for AMD?",
+      "ticker": "AMD",
+      "years": [
+        2015
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "depreciation"
+      ],
+      "predicted": "1.4% (from AMD FY2015 - Cash Flow Statement)",
+      "gold": "4.2%",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.21929824561403508,
+      "latency_ms": 655.4111689911224,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00222",
+      "question": "Does AMD have a reasonably healthy liquidity profile based on its quick ratio for FY22? If the quick ratio is not relevant to measure liquidity, please state that and explain why.",
+      "ticker": "AMD",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [],
+      "predicted": "Yes, AMD has a reasonably healthy liquidity profile based on its quick ratio for FY22. The quick ratio for FY22 was 1.86. (Source 1, Table of Contents)",
+      "gold": "Yes. The quick ratio is 1.57, calculated as (cash and cash equivalents+Short term investments+Accounts receivable, net+receivables from related parties)/ (current liabilities).",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.3624161073825503,
+      "latency_ms": 774.6191750047728,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00995",
+      "question": "What are the major products and services that AMD sells as of FY22?",
+      "ticker": "AMD",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "narrative",
+      "metrics": [],
+      "predicted": "AMD sells:\n\n*   **CPUs:** AMD Ryzen, AMD Ryzen PRO, AMD Threadripper, AMD Athlon, AMD Athlon PRO, AMD PRO A-Series, AMD EPYC Series, AMD EPYC 7000 Series, AMD EPYC 9004 Series, AMD EPYC 7002 Series.\n*   **GPUs:** AMD Radeon Graphics (including RDNA 3 and RDNA 2 architectures), AMD Radeon PRO Graphics (including RDNA 3 and RDNA 2 architectures), AMD Radeon RX Series (including RX 7900 XTX and RX 7900 XT), and AMD Radeon Instinct Accelerators.\n*   **FPGAs:** AMD Virtex\u2122 (including Virtex-6, Virtex-7, Virtex UltraScale+, Kintex-7, Kintex UltraScale+, Kintex UltraScale+, Artix-7, Artix UltraScale+, Spartan-6, and Spartan-7).\n*   **Adaptive SoCs:** AMD Zynq\u2122 (including Zynq UltraScale+ MPSoC and Versal\u2122 Adaptive SoC).\n*   **Other:** AMD Smart Technologies (including Radeon Software, AMD Infinity Architecture, and AMD Security Features).\n\n(Sources: AMD FY2022 \u2014 Products)",
+      "gold": "AMD sells server microprocessors (CPUs) and graphics processing units (GPUs), data processing units (DPUs), Field Programmable Gate Arrays (FPGAs), and Adaptive System-on-Chip (SoC) products for data centers; CPUs, accelerated processing units (APUs) that integrate CPUs and GPUs, and chipsets for desktop and notebook personal computers; discrete GPUs, and semi-custom SoC products and development services; and embedded CPUs, GPUs, APUs, FPGAs, and Adaptive SoC products.",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.7777777777777778,
+      "latency_ms": 2168.623274017591,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01198",
+      "question": "What drove revenue change as of the FY22 for AMD?",
+      "ticker": "AMD",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "revenue"
+      ],
+      "predicted": "$23.60 billion",
+      "gold": "In 2022, AMD reported Higher sales of their EPYC server processors, higher semi-custom product sales, and the inclusion of Xilinx embedded product sales",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 21.05561998905614,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00917",
+      "question": "What drove operating margin change as of the FY22 for AMD? If operating margin is not a useful metric for a company like this, then please state that and explain why.",
+      "ticker": "AMD",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [],
+      "predicted": "Operating margin increased to 21.3% in FY2022 from 20.7% in FY2021. (Source 1, p. 1)",
+      "gold": "The decrease in AMD's operating income was primarily driven by amortization of intangible assets associated with the Xilinx acquisition",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "no_match",
+      "retrieval_recall_at_5": 0.631578947368421,
+      "latency_ms": 776.1091270367615,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01279",
+      "question": "Among operations, investing, and financing activities, which brought in the most (or lost the least) cash flow for AMD in FY22?",
+      "ticker": "AMD",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [],
+      "predicted": "Investing activities brought in the most cash flow for AMD in FY22, with net cash provided by investing activities of $1,999 million. (Source 4)",
+      "gold": "In 2022, AMD brought in the most cashflow from Operations",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.8397790055248618,
+      "latency_ms": 730.2283610333689,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00563",
+      "question": "From FY21 to FY22, excluding Embedded, in which AMD reporting segment did sales proportionally increase the most?",
+      "ticker": "AMD",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "existence",
+      "metrics": [],
+      "predicted": "Data Center",
+      "gold": "Data Center",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "exact",
+      "retrieval_recall_at_5": 0.3333333333333333,
+      "latency_ms": 538.6643760139123,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00757",
+      "question": "Did AMD report customer concentration in FY22?",
+      "ticker": "AMD",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [],
+      "predicted": "No. (Source 1, Section 1)",
+      "gold": "Yes, one customer accounted for 16% of consolidated net revenue",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.5925925925925926,
+      "latency_ms": 593.6034159967676,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00476",
+      "question": "Which debt securities are registered to trade on a national securities exchange under American Express' name as of 2022?",
+      "ticker": "AXP",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "The Company has not registered any debt securities to trade on a national securities exchange under American Express' name as of 2022. (Source 1, Table of Contents)",
+      "gold": "There are none",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.3333333333333333,
+      "latency_ms": 719.99249298824,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01028",
+      "question": "What are the geographies that American Express primarily operates in as of 2022?",
+      "ticker": "AXP",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "narrative",
+      "metrics": [],
+      "predicted": "The United Kingdom (UK), the European Union (EU), Australia, Japan, Canada and Mexico. [Source 1]",
+      "gold": "United States, EMEA, APAC, and LACC",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "no_match",
+      "retrieval_recall_at_5": 0.2676056338028169,
+      "latency_ms": 680.1334790070541,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00723",
+      "question": "Does AMEX have an improving operating margin profile as of 2022? If operating margin is not a useful metric for a company like this, then state that and explain why.",
+      "ticker": "AXP",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [],
+      "predicted": "No, AMEX does not have an improving operating margin profile as of 2022. Net income decreased year-over-year despite higher revenues and net interest income growth. (Source 1, Table 8)",
+      "gold": "Performance is not measured through operating margin",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.3770491803278688,
+      "latency_ms": 816.9977329671383,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00720",
+      "question": "What drove gross margin change as of the FY2022 for American Express? If gross margin is not a useful metric for a company like this, then please state that and explain why.",
+      "ticker": "AXP",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "gross profit"
+      ],
+      "predicted": "Gross margin increased to 2.7% from 2.6% in FY2021, primarily due to lower interchange revenue and higher interchange fees in FY2022. (Source 1, Table 1)",
+      "gold": "Performance is not measured through gross margin",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "no_match",
+      "retrieval_recall_at_5": 0.28415300546448086,
+      "latency_ms": 821.3298030314036,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01351",
+      "question": "How much has the effective tax rate of American Express changed between FY2021 and FY2022?",
+      "ticker": "AXP",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "The effective tax rate changed from 23.7% in FY2021 to 21.7% in FY2022. (Source 1, Table 1)",
+      "gold": "The effective tax rate for American Express has changed/dropped from 24.6% in FY 2021 to 21.6% in FY 2022.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.3825136612021858,
+      "latency_ms": 739.870406978298,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01964",
+      "question": "What was the largest liability in American Express's Balance Sheet in 2022?",
+      "ticker": "AXP",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "$33,914 (AXP FY2022 \u2014 Financial Statements and Supplementary Data)",
+      "gold": "Customer deposits",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "no_match",
+      "retrieval_recall_at_5": 0.391304347826087,
+      "latency_ms": 602.1293340018019,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01981",
+      "question": "Was American Express able to retain card members during 2022?",
+      "ticker": "AXP",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "Yes, American Express was able to retain card members during 2022. (Source 1, Paragraph 1)",
+      "gold": "Yes",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "exact",
+      "retrieval_recall_at_5": 0.4827586206896552,
+      "latency_ms": 635.1629590499215,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_05718",
+      "question": "How much (in USD billions) did American Water Works pay out in cash dividends for FY2020? Compute or extract the answer by primarily using the details outlined in the statement of cash flows.",
+      "ticker": "AWK",
+      "years": [
+        2020
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "existence",
+      "metrics": [
+        "cash",
+        "dividends"
+      ],
+      "predicted": "$1.1",
+      "gold": "$0.40",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.38197424892703863,
+      "latency_ms": 502.3405170068145,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_04254",
+      "question": "Basing your judgments off of the cash flow statement and the income statement, what is American Water Works's FY2021 unadjusted operating income + depreciation and amortization from the cash flow statement (unadjusted EBITDA) in USD millions?",
+      "ticker": "AWK",
+      "years": [
+        2021
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [
+        "depreciation",
+        "operating income"
+      ],
+      "predicted": "$1,748",
+      "gold": "$1832.00",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.265993265993266,
+      "latency_ms": 572.003056993708,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00070",
+      "question": "Does American Water Works have positive working capital based on FY2022 data? If working capital is not a useful or relevant metric for this company, then please state that and explain why.",
+      "ticker": "AWK",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "narrative",
+      "metrics": [],
+      "predicted": "Yes, American Water Works Company has positive working capital based on FY2022 data. Working capital is calculated as Current Assets minus Current Liabilities.\n\nCurrent Assets: $11,176.4 million\nCurrent Liabilities: $4,106.9 million\nWorking Capital: $7,069.5 million\n\nSource: AWK FY2022 \u2014 Financial Statements and Supplementary Data",
+      "gold": "No, American Water Works had negative working capital of -$1561M in FY 2022.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.2375,
+      "latency_ms": 1022.6224689977244,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_02608",
+      "question": "In agreement with the information outlined in the income statement, what is the FY2015 - FY2017 3 year average net profit margin (as a %) for Best Buy? Answer in units of percents and round to one decimal place.",
+      "ticker": "BBY",
+      "years": [
+        2017
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [],
+      "predicted": "3.6% (BBY FY2017 - BBY FY2015) [Source 1, Table 1]",
+      "gold": "2.8%",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.5196850393700787,
+      "latency_ms": 745.3182179597206,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_04417",
+      "question": "What is the year end FY2019 total amount of inventories for Best Buy? Answer in USD millions. Base your judgments on the information provided primarily in the balance sheet.",
+      "ticker": "BBY",
+      "years": [
+        2019
+      ],
+      "route_type": "rag",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "inventory"
+      ],
+      "predicted": "$5.41 billion",
+      "gold": "$5409.00",
+      "official_correct": false,
+      "internal_correct": true,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 23.837045999243855,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00685",
+      "question": "Are Best Buy's gross margins historically consistent (not fluctuating more than roughly 2% each year)? If gross margins are not a relevant metric for a company like this, then please state that and explain why.",
+      "ticker": "BBY",
+      "years": [
+        2023
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "gross profit"
+      ],
+      "predicted": "No, gross margins have fluctuated more than roughly 2% each year. Source: BBY FY2023 \u2014 Management's Discussion and Analysis",
+      "gold": "Yes, the margins have been consistent, there has been a minor decline of 1.1% in gross margins between FY2022 and FY2023.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.3953488372093023,
+      "latency_ms": 747.7167619508691,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01077",
+      "question": "What are major acquisitions that Best Buy has done in FY2023, FY2022 and FY2021?",
+      "ticker": "BBY",
+      "years": [
+        2023
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "In fiscal 2023, Best Buy acquired:\n\n*   Current Health Ltd.\n*   Two Peaks, LLC d/b/a Yardbird Furniture",
+      "gold": "Best Buy closed two acquisitions, both these companies were already partially owned by Best Buy, but Best Buy acquired all outstanding shares of these two companies during FY 2022: (1) Current Health Ltd and (2) Two Peaks, LLC d/b/a Yardbird Furniture",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 1.0,
+      "latency_ms": 740.6154439668171,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01275",
+      "question": "Among operations, investing, and financing activities, which brought in the most (or lost the least) cash flow for Best Buy in FY2023?",
+      "ticker": "BBY",
+      "years": [
+        2023
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [],
+      "predicted": "Operating activities brought in the most cash flow for Best Buy in FY2023, with net cash provided by operating activities of $10.7 billion. (Source 1)",
+      "gold": "Best Buy generated the most cash flow from operating activities in FY 2023 ($1.8 bn)",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.34868421052631576,
+      "latency_ms": 752.5471299886703,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00288",
+      "question": "Was there any drop in Cash & Cash equivalents between FY 2023 and Q2 of FY2024?",
+      "ticker": "BBY",
+      "years": [
+        2024
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "existence",
+      "metrics": [
+        "cash"
+      ],
+      "predicted": "yes",
+      "gold": "Yes, there was a decline of ~42% between FY2023 and Q2 of FY 2024.",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "exact",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 22.924178978428245,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00460",
+      "question": "Was there any change in the number of Best Buy stores between Q2 of FY2024 and FY2023?",
+      "ticker": "BBY",
+      "years": [
+        2024
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "existence",
+      "metrics": [],
+      "predicted": "No, there was no change. (Source 1, 1)",
+      "gold": "Yes, there is decline in number stores by 1.32% from 982 stores in Q2 FY 2023 to 969 by the end of Q2 FY2024.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.569620253164557,
+      "latency_ms": 642.7873779903166,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01902",
+      "question": "Which Best Buy product category performed the best (by top line) in the domestic (USA) Market during Q2 of FY2024?",
+      "ticker": "BBY",
+      "years": [
+        2024
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "Computing and Mobile Phones",
+      "gold": "The entertainment segment experienced the highest growth of 9% during Q2 FY2024, primarily from gaming division.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "no_match",
+      "retrieval_recall_at_5": 0.6341463414634146,
+      "latency_ms": 563.7299779918976,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_04660",
+      "question": "Considering the data in the balance sheet, what is Block's (formerly known as Square) FY2016 working capital ratio? Define working capital ratio as total current assets divided by total current liabilities. Round your answer to two decimal places.",
+      "ticker": "XYZ",
+      "years": [
+        2016
+      ],
+      "route_type": "rag",
+      "actual_route": "xbrl",
+      "operation": "ratio",
+      "metrics": [
+        "total current assets",
+        "total current liabilities"
+      ],
+      "predicted": "1.7342",
+      "gold": "1.73",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "exact",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 23.69803504552692,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_03838",
+      "question": "What is the FY2019 - FY2020 total revenue growth rate for Block (formerly known as Square)? Answer in units of percents and round to one decimal place. Approach the question asked by assuming the standpoint of an investment banking analyst who only has access to the statement of income.",
+      "ticker": "XYZ",
+      "years": [
+        2020
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "revenue"
+      ],
+      "predicted": "101.0% (Source 1, Business)",
+      "gold": "101.5%",
+      "official_correct": false,
+      "internal_correct": true,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.13793103448275862,
+      "latency_ms": 620.1138499891385,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_07661",
+      "question": "Using the cash flow statement, answer the following question to the best of your abilities: how much did Block (formerly known as Square) generate in cash flow from operating activities in FY2020? Answer in USD millions.",
+      "ticker": "XYZ",
+      "years": [
+        2020
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "existence",
+      "metrics": [],
+      "predicted": "$103,700",
+      "gold": "$382.00",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.09059233449477352,
+      "latency_ms": 599.9926209915429,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_10285",
+      "question": "We need to calculate a financial metric by using information only provided within the balance sheet. Please answer the following question: what is Boeing's year end FY2018 net property, plant, and equipment (in USD millions)?",
+      "ticker": "BA",
+      "years": [
+        2018
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "$117,359 (Note 11)",
+      "gold": "$12645.00",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.7081081081081081,
+      "latency_ms": 699.2605790146627,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00517",
+      "question": "Are there any product categories / service categories that represent more than 20% of Boeing's revenue for FY2022?",
+      "ticker": "BA",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "revenue"
+      ],
+      "predicted": "$66.61 billion",
+      "gold": "Yes. Boeing has product and service categories that represent more than 20% of Boeing's revenue for FY2022. These categories are Commercial Airplanes which comprises 39% of total revenue, Defence which comprises 35% of total revenue and Services which comprises 26% of total revenue.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 29.72271601902321,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01091",
+      "question": "Has Boeing reported any materially important ongoing legal battles from FY2022?",
+      "ticker": "BA",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "Yes, Boeing is involved in a number of litigation matters.",
+      "gold": "Yes. Multiple lawsuits have been filed against Boeing resulting from a 2018 Lion Air crash and a 2019 Ethiopian Airlines crash.",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 1.0,
+      "latency_ms": 609.2622860451229,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00678",
+      "question": "Does Boeing have an improving gross margin profile as of FY2022? If gross margin is not a useful metric for a company like this, then state that and explain why.",
+      "ticker": "BA",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "gross profit"
+      ],
+      "predicted": "No, Boeing's gross margin has not shown an improving trend as of FY2022.",
+      "gold": "Yes. Boeing has an improving gross margin profile as of FY2022. Gross profit improved from $3,017 million in FY2021 to $3,502 million in FY2022. Gross margin % improved from 4.8% in FY2021 to 5.3% in FY2022.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.5,
+      "latency_ms": 607.4658210272901,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01290",
+      "question": "Who are the primary customers of Boeing as of FY2022?",
+      "ticker": "BA",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "The primary customers of Boeing are:\n\n1. Commercial airlines (for commercial aircraft)\n2. U.S. and international government agencies (for defense, space & security systems)",
+      "gold": "Boeing's primary customers as of FY2022 are a limited number of commercial airlines and the US government. The US government accounted for 40% of Boeing's total revenues in FY2022.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.7142857142857143,
+      "latency_ms": 752.4201149935834,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00464",
+      "question": "Is Boeing's business subject to cyclicality?",
+      "ticker": "BA",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "Yes.\n\nSource 1, Risk Factors: \"The outcome of litigation and of government inquiries and investigations involving our business is unpredictable and an adverse decision in any such matter could have a material effect on our financial position and results of operations.\"",
+      "gold": "Yes, Boeing's business is subject to cyclicality due to its exposure to the airline industry which is a cyclical industry.",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.5294117647058824,
+      "latency_ms": 819.8041360010393,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00494",
+      "question": "What production rate changes is Boeing forecasting for FY2023?",
+      "ticker": "BA",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "5 per month, as part of the plan to gradually increase production rates on the 787 program. (Source 1, 2, 4)",
+      "gold": "Boeing forecasts an increase in the production rates for the 737, 777X and 787 aircrafts in 2023.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 1.0,
+      "latency_ms": 730.4296329966746,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00585",
+      "question": "How does Boeing's effective tax rate in FY2022 compare to FY2021?",
+      "ticker": "BA",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "compare",
+      "metrics": [],
+      "predicted": "Boeing's effective tax rate in FY2022 was 24.6% , compared to 26.8% in FY2021. (Source 1, Table 1)",
+      "gold": "Effective tax rate in FY2022 was 0.62%, compared to  -14.76% in FY2021.",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 1.0,
+      "latency_ms": 821.4821479632519,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_03473",
+      "question": "What is the FY2017 return on assets (ROA) for Coca Cola? ROA is defined as: FY2017 net income / (average total assets between FY2016 and FY2017). Round your answer to two decimal places. Give a response to the question by relying on the details shown in the balance sheet and the P&L statement.",
+      "ticker": "KO",
+      "years": [
+        2017
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "ratio",
+      "metrics": [
+        "net income",
+        "total assets"
+      ],
+      "predicted": "0.0142",
+      "gold": "0.01",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "exact",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 54.699452011846006,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_09724",
+      "question": "What is Coca Cola's FY2021 COGS % margin? Calculate what was asked by utilizing the line items clearly shown in the income statement.",
+      "ticker": "KO",
+      "years": [
+        2021
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "cost of goods sold"
+      ],
+      "predicted": "33.9% (or 0.339) (KO FY2021 \u2014 Financial Statements and Supplementary Data, Item 8)",
+      "gold": "39.7%",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.42748091603053434,
+      "latency_ms": 704.8153099603951,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_06272",
+      "question": "What is Coca Cola's FY2022 dividend payout ratio (using total cash dividends paid and net income attributable to shareholders)? Round answer to two decimal places. Answer the question asked by assuming you only have access to information clearly displayed in the cash flow statement and the income statement.",
+      "ticker": "KO",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "cash",
+        "dividends",
+        "net income"
+      ],
+      "predicted": "24.12% (Source 1, Table 1)",
+      "gold": "0.8",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.2909090909090909,
+      "latency_ms": 507.8030049917288,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_10130",
+      "question": "Based on the information provided primarily in the balance sheet and the statement of income, what is FY2020 days payable outstanding (DPO) for Corning? DPO is defined as: 365 * (average accounts payable between FY2019 and FY2020) / (FY2020 COGS + change in inventory between FY2019 and FY2020). Round your answer to two decimal places.",
+      "ticker": "GLW",
+      "years": [
+        2020
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [
+        "accounts payable",
+        "inventory"
+      ],
+      "predicted": "28.67",
+      "gold": "63.86",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.16877637130801687,
+      "latency_ms": 560.1409660303034,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_02981",
+      "question": "Taking into account the information outlined in the income statement, what is the FY2019 - FY2021 3 year average unadjusted operating income % margin for Corning? Answer in units of percents and round to one decimal place.",
+      "ticker": "GLW",
+      "years": [
+        2021
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "operating income"
+      ],
+      "predicted": "20.9%",
+      "gold": "10.3%",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.27419354838709675,
+      "latency_ms": 522.1700469846837,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01346",
+      "question": "How much has the effective tax rate of Corning changed between FY2021 and FY2022?",
+      "ticker": "GLW",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "The effective tax rate changed from 21% in FY2021 to 23% in FY2022, an increase of 2 percentage points. (Source 1, paragraph 3)",
+      "gold": "The effective tax rate of Corning has changed from 20% in FY2021 to 23% in FY 2022.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 1.0,
+      "latency_ms": 731.4845829969272,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00005",
+      "question": "Does Corning have positive working capital based on FY2022 data? If working capital is not a useful or relevant metric for this company, then please state that and explain why.",
+      "ticker": "GLW",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "narrative",
+      "metrics": [],
+      "predicted": "Yes, Corning had positive working capital in FY2022. (Source 1, Section 1)",
+      "gold": "Yes. Corning had a positive working capital amount of $831 million by FY 2022 close. This answer considers only operating current assets and current liabilities that were clearly shown in the balance sheet.",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.2727272727272727,
+      "latency_ms": 626.017584989313,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_04209",
+      "question": "Using only the information within the balance sheet, how much total assets did Costco have at the end of FY2021? Answer in USD millions.",
+      "ticker": "COST",
+      "years": [
+        2021
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "existence",
+      "metrics": [
+        "total assets"
+      ],
+      "predicted": "yes",
+      "gold": "$59268.00",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "no_match",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 19.442102988250554,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_05915",
+      "question": "What is the FY2018 fixed asset turnover ratio for CVS Health? Fixed asset turnover ratio is defined as: FY2018 revenue / (average PP&E between FY2017 and FY2018). Round your answer to two decimal places. Calculate what was asked by utilizing the line items clearly shown in the P&L statement and the balance sheet.",
+      "ticker": "CVS",
+      "years": [
+        2018
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "revenue"
+      ],
+      "predicted": "$1.73",
+      "gold": "17.98",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.11191335740072202,
+      "latency_ms": 572.4243270233274,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00790",
+      "question": "Is CVS Health a capital-intensive business based on FY2022 data?",
+      "ticker": "CVS",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "No.\n\nContext:\n[Source 1: CVS FY2022 \u2014 Business]\nItem 1. Business.\n\nOverview\n\nCVS Health Corporation, together with its subsidiaries (collectively, \u201cCVS Health,\u201d the \u201cCompany,\u201d \u201cwe,\u201d \u201cour\u201d or \u201cus\u201d), is a leading diversified health solutions company reshaping health care to help make healthier happen for more Americans. In an increasingly connected and digital world, CVS Health is meeting people wherever they are and changing health care to meet their needs. The Company has more than 9,000 retail locations, more than 1,100 walk-in medical clinics, a leading pharmacy benefits manager with over 110 million plan members with expanding specialty pharmacy solutions and a dedicated senior pharmacy care business serving more than one million patients per year. The Company also serves an estimated 35 million people through traditional, voluntary and consumer-directed health insurance products and related services, including expanding Medicare Advantage offerings and a leading standalone Medicare Part D prescription drug plan (\u201cPDP\u201d). The Company believes its integrated health care model increases access to quality care, delivers better health outcomes and lowers overall health care costs. The Company is also a leader in key segments of health care through its foundational businesses and is seeking to create new sources of value by expanding into next generation care delivery and health services, with a goal of improving satisfaction levels for both providers and consumers. The Company believes its consumer-centric strategy will drive sustainable long-term growth and deliver value for all stakeholders.\n\nThe Company has four reportable segments: Health Care Benefits, Pharmacy Services, Retail/LTC and Corporate/Other.\n\nBusiness Strategy\n\nThe Company seeks to reimagine the consumer healthcare experience to make it easier and more affordable to live a healthier life. This means delivering solutions that are more personalized, simpler to use, and increasingly digital so that consumers can receive care when, where and how they desire. CVS Health is also shifting from transaction-based care to addressing holistic health \u2013 physical, emotional, social, economic \u2013 which will lead to higher quality care and lower overall health care costs. The Company is also a leader in key segments of health care through its foundational businesses and is seeking to create new sources of value by expanding into next generation care delivery and health services, with a goal of improving satisfaction levels for both providers and consumers. The Company believes its consumer-centric strategy will drive sustainable long-term growth and deliver value for all stakeholders.\n\nCOVID-19\n\nThe COVID-19 pandemic and its emerging new variants continue to impact the U.S. and other countries around the world. Our strong local presence and scale in communities across the country has enabled us to play an indispensable role in the national response to COVID-19, as well as provide seamless support for our customers wherever they need us: in our CVS locations, in their homes, and virtually.\n\nThe Company offered COVID-19 diagnostic testing at more than 4,700 CVS pharmacy locations, at community-based testing sites in underserved areas and through its Return Ready\n\nSM\n\n---\n\n[Source 6: CVS FY2022 \u2014 Financial Statements and Supplementary Data]\n$\n\n1.5\n\nbillion fixed dollar ASR with Barclays Bank PLC. Upon payment of the $\n\n1.5\n\nbillion notional amount of the ASR or approximately\n\n80\n\n% of the $\n\n1.5\n\nbillion notional amount of the ASR, which were placed into treasury stock in January 2022. The ASR was accounted for as an initial treasury stock transaction for $\n\n1.2\n\nbillion and a forward contract for $\n\n0.3\n\nbillion. The forward contract was reclassified from capital surplus to treasury stock in February 2022.\n\nAt the time they were received, the initial and final receipt of shares resulted in an immediate reduction of the outstanding shares used to calculate the weighted average common shares outstanding for basic and diluted earnings per share.\n\nDividends\n\nThe quarterly cash dividend declared by the Board was $\n\n0.55\n\nand $\n\n0.50\n\nper share in 2022 and 2021, respectively. In December 2022, the Board authorized a\n\n10\n\n% increase in the quarterly cash dividend to $\n\n0.605\n\nper share effective in 2023. CVS Health Corporation has paid cash dividends every quarter since becoming a public company. Future dividend payments will depend on the Company\u2019s earnings, capital requirements, financial condition and other factors considered relevant by the Board.\n\nRegulatory Requirements\n\nThe Company\u2019s insurance business operations are conducted through subsidiaries that principally consist of health maintenance organizations (\u201cHMOs\u201d) and insurance companies. The Company\u2019s HMO and insurance subsidiaries report their financial statements in accordance with accounting practices prescribed by state regulatory authorities which may differ from GAAP.\n\nThe combined statutory net income for the years ended and estimated combined statutory and capital surplus at December\u00a031,",
+      "gold": "Yes, CVS Health requires an extensive asset base to operate, which is evident from its ROA of only 1.82% in 2022 and 3.39% in 2021, though it should be noted that a significant portion of this asset base is goodwill, and CVS's fixed assets/total assets ratio is on the lower side of 5.6%.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.3020833333333333,
+      "latency_ms": 6673.276117013302,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01107",
+      "question": "Has CVS Health reported any materially important ongoing legal battles from 2022, 2021 and 2020?",
+      "ticker": "CVS",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "Yes.",
+      "gold": "Yes, CVS Health has been involved in multiple ongoing legal battles. Some notable legal dispute areas for CVS are: (1) usual and customary pricing litigation: where it's claimed that CVS\u00e2\u0080\u0099s retail pharmacies overcharged for prescription drugs; (2) PBM litigation and investigations: where it's claimed that that rebate agreements between the drug manufacturers and PBMs caused inflated prices for certain drug products; and (3) controlled substances litigation: legal matters around opioids for which CVS has agreed to pay up to $4.3 billion to claimants in remediation and $625 million to attorneys and fees",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.5087719298245614,
+      "latency_ms": 575.7100660121068,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01244",
+      "question": "Has CVS Health paid dividends to common shareholders in Q2 of FY2022?",
+      "ticker": "CVS",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "dividends"
+      ],
+      "predicted": "$2.91 billion",
+      "gold": "Yes, CVS paid a $ 0.55 dividend per share every quarter in FY2022",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 23.6645020195283,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00839",
+      "question": "Does Foot Locker's new CEO have previous CEO experience in a similar company to Footlocker?",
+      "ticker": "FL",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "No.\n\nFoot Locker's new CEO has previous CEO experience in a similar company. Source: [Source 1: FL FY2022 \u2014 Business]",
+      "gold": "Yes. She was previous CEO of Ulta Beauty which means she had to manage a large retail company that has brick and mortar + online business. So yes she was a CEO in a similar company to Foot Locker before this.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.3148148148148148,
+      "latency_ms": 689.8585440358147,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00822",
+      "question": "Were there any board member nominees who had substantially more votes against joining than the other nominees?",
+      "ticker": "FL",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "No. (Source 1, Risk Factors)",
+      "gold": "Yes, his name is Richard A. Johnson",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.15873015873015872,
+      "latency_ms": 598.2109470060095,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_04103",
+      "question": "What is the FY2019 cash conversion cycle (CCC) for General Mills? CCC is defined as: DIO + DSO - DPO. DIO is defined as: 365 * (average inventory between FY2018 and FY2019) / (FY2019 COGS). DSO is defined as: 365 * (average accounts receivable between FY2018 and FY2019) / (FY2019 Revenue). DPO is defined as: 365 * (average accounts payable between FY2018 and FY2019) / (FY2019 COGS + change in inventory between FY2018 and FY2019). Round your answer to two decimal places. Address the question by using the line items and information shown within the income statement and the balance sheet.",
+      "ticker": "GIS",
+      "years": [
+        2019
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [
+        "accounts payable",
+        "accounts receivable",
+        "cash",
+        "inventory",
+        "revenue"
+      ],
+      "predicted": "20.11",
+      "gold": "-3.7",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.31363636363636366,
+      "latency_ms": 493.6405360349454,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_03471",
+      "question": "By drawing conclusions from the information stated only in the statement of financial position, what is General Mills's FY2020 working capital ratio? Define working capital ratio as total current assets divided by total current liabilities. Round your answer to two decimal places.",
+      "ticker": "GIS",
+      "years": [
+        2020
+      ],
+      "route_type": "rag",
+      "actual_route": "xbrl",
+      "operation": "ratio",
+      "metrics": [
+        "total current assets",
+        "total current liabilities"
+      ],
+      "predicted": "0.6836",
+      "gold": "0.68",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "exact",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 44.880325032863766,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_04854",
+      "question": "According to the information provided in the statement of cash flows, what is the FY2020 free cash flow (FCF) for General Mills? FCF here is defined as: (cash from operations - capex). Answer in USD millions.",
+      "ticker": "GIS",
+      "years": [
+        2020
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "ratio",
+      "metrics": [
+        "capex",
+        "cash"
+      ],
+      "predicted": "0.2746",
+      "gold": "$3215.00",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 40.44532199623063,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_10136",
+      "question": "We want to calculate a financial metric. Please help us compute it by basing your answers off of the cash flow statement and the income statement. Here's the question: what is the FY2022 retention ratio (using total cash dividends paid and net income attributable to shareholders) for General Mills? Round answer to two decimal places.",
+      "ticker": "GIS",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "cash",
+        "dividends",
+        "net income"
+      ],
+      "predicted": "1.21",
+      "gold": "0.54",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.3458646616541353,
+      "latency_ms": 574.1261360235512,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00956",
+      "question": "Are JnJ's FY2022 financials that of a high growth company?",
+      "ticker": "JNJ",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "No.",
+      "gold": "No, JnJ's FY2022 financials are not of a high growth company as sales grew by 1.3% in FY2022.",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.7272727272727273,
+      "latency_ms": 566.3231880171224,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00669",
+      "question": "What drove gross margin change as of FY2022 for JnJ? If gross margin is not a useful metric for a company like this, then please state that and explain why.",
+      "ticker": "JNJ",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "gross profit"
+      ],
+      "predicted": "Gross margin increased by 1.1% to 38.7% in FY2022 compared to FY2021, primarily due to the impact of the COVID-19 pandemic on demand and pricing . (JNJ FY2022 \u2014 Management's Discussion and Analysis)",
+      "gold": "For FY22, JnJ had changes in gross margin due to: One-time COVID-19 vaccine manufacturing exit related costs, Currency impacts in the Pharmaceutical segment, Commodity inflation in the MedTech and Consumer Health segments, partially offset by Supply chain benefits in the Consumer Health segment.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.582089552238806,
+      "latency_ms": 885.6578519917093,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00711",
+      "question": "Roughly how many times has JnJ sold its inventory in FY2022? Calculate inventory turnover ratio for FY2022; if conventional inventory management is not meaningful for the company then state that and explain why.",
+      "ticker": "JNJ",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "inventory"
+      ],
+      "predicted": "1.0 times. Source 1, Page 48",
+      "gold": "JnJ sold its inventory 2.7 times in FY2022.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.4507042253521127,
+      "latency_ms": 630.6778939906508,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00651",
+      "question": "Is growth in JnJ's adjusted EPS expected to accelerate in FY2023?",
+      "ticker": "JNJ",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "eps"
+      ],
+      "predicted": "$7.93 per share",
+      "gold": "No, rate of growth in adjusted EPS is expected to decelerate slightly from 3.6% in FY2022 to 3.5% in FY2023.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 1771.0367090185173,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01484",
+      "question": "How did JnJ's US sales growth compare to international sales growth in FY2022?",
+      "ticker": "JNJ",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "existence",
+      "metrics": [],
+      "predicted": "J&J's US sales grew 14.9% compared to international sales growth of 20.6% in FY2021 (Source 1, Table 1).",
+      "gold": "US sales increased 3.0% vs international sales decline of 0.6%.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.58,
+      "latency_ms": 722.6843889802694,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01488",
+      "question": "Which business segment of JnJ will be treated as a discontinued operation from August 30, 2023 onward?",
+      "ticker": "JNJ",
+      "years": [
+        2023
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [],
+      "predicted": "Consumer Health",
+      "gold": "The Consumer Health business segment will be treated as a discontinued operation from August 30, 2023 onward.",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "exact",
+      "retrieval_recall_at_5": 0.47126436781609193,
+      "latency_ms": 533.6801369558088,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01490",
+      "question": "What is the amount of the gain accruing to JnJ as a result of the separation of its Consumer Health business segment, as of August 30, 2023?",
+      "ticker": "JNJ",
+      "years": [
+        2023
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [],
+      "predicted": "$21.0 billion (JNJ FY2023 \u2014 Financial Statements and Supplementary Data, Net earnings from discontinued operations, net of taxes)",
+      "gold": "JnJ will make a gain of approximately $20 billion from the separation of its Consumer Health business segment.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.47701149425287354,
+      "latency_ms": 692.5722129526548,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01491",
+      "question": "What is the amount of the cash proceeds that JnJ realised from the separation of Kenvue (formerly Consumer Health business segment), as of August 30, 2023?",
+      "ticker": "JNJ",
+      "years": [
+        2023
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "cash"
+      ],
+      "predicted": "$21.0 billion (Source 1, 24)",
+      "gold": "JnJ realised $13.2 billion in cash proceeds from the separation of Kenvue.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.47126436781609193,
+      "latency_ms": 553.7679989938624,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01487",
+      "question": "Did JnJ's net earnings as a percent of sales increase in Q2 of FY2023 compared to Q2 of FY2022?",
+      "ticker": "JNJ",
+      "years": [
+        2023
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "existence",
+      "metrics": [],
+      "predicted": "No, net earnings as a percent of sales decreased from 13.8% in Q2 FY2022 to 13.3% in Q2 FY2023 (Source 1, Table 1).",
+      "gold": "Yes, net earnings as a percent of sales increased from 20% in Q2 of FY2022 to 20.1% in Q2 of FY2023.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.6296296296296297,
+      "latency_ms": 826.7785549978726,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00299",
+      "question": "Which of JPM's business segments had the lowest net revenue in 2021 Q1?",
+      "ticker": "JPM",
+      "years": [
+        2021
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "revenue"
+      ],
+      "predicted": "$121.65 billion",
+      "gold": "Corporate. Its net revenue was -$473 million.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 849.170841043815,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_02119",
+      "question": "If JPM went bankrupted by the end by 2021 Q1 and liquidated all of its assets to pay its shareholders, how much could each shareholder get?",
+      "ticker": "JPM",
+      "years": [
+        2021
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "$0.00",
+      "gold": "They could receive $66.56 per share.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.35714285714285715,
+      "latency_ms": 582.9070149920881,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00206",
+      "question": "Are JPM's gross margins historically consistent (not fluctuating more than roughly 2% each year)? If gross margins are not a relevant metric for a company like this, then please state that and explain why.",
+      "ticker": "JPM",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "gross profit"
+      ],
+      "predicted": "No, JPM's gross margins have historically fluctuated more than roughly 2% each year. (Source 1, 166)",
+      "gold": "Since JPM is a financial institution, gross margin is not a relevant metric.",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.4925373134328358,
+      "latency_ms": 700.6518649868667,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00394",
+      "question": "In 2022 Q2, which of JPM's business segments had the highest net income?",
+      "ticker": "JPM",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "net income"
+      ],
+      "predicted": "$37.68 billion",
+      "gold": "Corporate & Investment Bank. Its net income was $3725 million.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 41.30027600331232,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_02049",
+      "question": "Looking at VaR, did the risk that JPM faced in the second fiscal quarter of 2023 decrease compared to the same period in the prior year?",
+      "ticker": "JPM",
+      "years": [
+        2023
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "existence",
+      "metrics": [],
+      "predicted": "No.\n\nSource 1, 220",
+      "gold": "Yes. It decreased.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.6206896551724138,
+      "latency_ms": 596.3479780475609,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_10499",
+      "question": "What is Kraft Heinz's FY2019 inventory turnover ratio? Inventory turnover ratio is defined as: (FY2019 COGS) / (average inventory between FY2018 and FY2019). Round your answer to two decimal places. Please base your judgments on the information provided primarily in the balance sheet and the P&L statement.",
+      "ticker": "KHC",
+      "years": [
+        2019
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "inventory"
+      ],
+      "predicted": "2.4",
+      "gold": "6.25",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.3092369477911647,
+      "latency_ms": 546.6455569840036,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_04412",
+      "question": "We need to calculate a reasonable approximation (or exact number if possible) of a financial metric. Basing your judgment by information plainly provided in the balance sheet and the P&L statement, what is Lockheed Martin's FY2020 asset turnover ratio? Asset turnover ratio is defined as: FY2020 revenue / (average total assets between FY2019 and FY2020). Round your answer to two decimal places.",
+      "ticker": "LMT",
+      "years": [
+        2020
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "ratio",
+      "metrics": [
+        "revenue",
+        "total assets"
+      ],
+      "predicted": "0.3086",
+      "gold": "1.33",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 31.50594001635909,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_03031",
+      "question": "What is Lockheed Martin's FY2021 net working capital? Define net working capital as total current assets less total current liabilities. Answer in USD millions. Respond to the question by assuming the perspective of an investment analyst who can only use the details shown within the balance sheet.",
+      "ticker": "LMT",
+      "years": [
+        2021
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [
+        "total current assets",
+        "total current liabilities"
+      ],
+      "predicted": "$3,604 million (Source 1)",
+      "gold": "$5818.00",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.44755244755244755,
+      "latency_ms": 591.7116240016185,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_03718",
+      "question": "What is Lockheed Martin's 2 year total revenue CAGR from FY2020 to FY2022 (in units of percents and round to one decimal place)? Provide a response to the question by primarily using the statement of income.",
+      "ticker": "LMT",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "revenue"
+      ],
+      "predicted": "$65.98 billion",
+      "gold": "0.4%",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 149.4904940482229,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_04171",
+      "question": "Basing your judgments off of the balance sheet, what is the year end FY2018 amount of accounts payable for MGM Resorts? Answer in USD millions.",
+      "ticker": "MGM",
+      "years": [
+        2018
+      ],
+      "route_type": "rag",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "accounts payable"
+      ],
+      "predicted": "$302.6 million",
+      "gold": "$303.00",
+      "official_correct": false,
+      "internal_correct": true,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 17.682679987046868,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_03849",
+      "question": "What is the FY2018 - FY2020 3 year average of capex as a % of revenue for MGM Resorts? Answer in units of percents and round to one decimal place. Please utilize information provided primarily within the statement of cash flows and the statement of income.",
+      "ticker": "MGM",
+      "years": [
+        2020
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [
+        "capex",
+        "revenue"
+      ],
+      "predicted": "23.1% (Source 1, Table 1)",
+      "gold": "7.9%",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.19027484143763213,
+      "latency_ms": 567.7031059749424,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01254",
+      "question": "Has MGM Resorts paid dividends to common shareholders in FY2022?",
+      "ticker": "MGM",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "dividends"
+      ],
+      "predicted": "$4.0 million",
+      "gold": "Yes. MGM maintained 0.01$ per share annual dividend through out FY 2022.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 18.95960496040061,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00382",
+      "question": "Which region had the Highest EBITDAR Contribution for MGM during FY2022?",
+      "ticker": "MGM",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "Asia",
+      "gold": "Las Vegas resorts contributed ~90% of company level EBITDAR during FY2022.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "no_match",
+      "retrieval_recall_at_5": 0.5180722891566265,
+      "latency_ms": 522.6994690019637,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01911",
+      "question": "What was MGM's interest coverage ratio using FY2022 Adjusted EBIT as the numerator and annual Interest Expense as the denominator?",
+      "ticker": "MGM",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "interest expense"
+      ],
+      "predicted": "2.75",
+      "gold": "As adjusted EBIT is negative, coverage ratio is zero",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "no_match",
+      "retrieval_recall_at_5": 0.5722543352601156,
+      "latency_ms": 558.1828429712914,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01912",
+      "question": "Which region had the worst topline performance for MGM during FY2022?",
+      "ticker": "MGM",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "MGM China",
+      "gold": "MGM China experienced the worst topline performance amongst the other regions presented. Its revenue declined 44% in FY2022 whereas the other regions presented increased their revenues.",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "exact",
+      "retrieval_recall_at_5": 0.6428571428571429,
+      "latency_ms": 546.5518499840982,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00407",
+      "question": "Which type of debt received the largest investment among the short term investments for MGM in H1 FY2023?",
+      "ticker": "MGM",
+      "years": [
+        2023
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "Trading securities",
+      "gold": "the biggest short term investment is in corporate bonds (almost 82% of the total investment)",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "no_match",
+      "retrieval_recall_at_5": 0.4444444444444444,
+      "latency_ms": 534.1340209706686,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_04700",
+      "question": "What is the FY2016 COGS for Microsoft? Please state answer in USD millions. Provide a response to the question by primarily using the statement of income.",
+      "ticker": "MSFT",
+      "years": [
+        2016
+      ],
+      "route_type": "rag",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "cost of goods sold"
+      ],
+      "predicted": "$17.88 billion",
+      "gold": "$32780.00",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 590.1380670256913,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00552",
+      "question": "Has Microsoft increased its debt on balance sheet between FY2023 and the FY2022 period?",
+      "ticker": "MSFT",
+      "years": [
+        2023
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "absolute_change",
+      "metrics": [],
+      "predicted": "Yes, Microsoft increased its debt on balance sheet between FY2023 and FY2022. (Source 1, Table 1)",
+      "gold": "No. Microsoft decreased its debt by $2.5bn in FY 2023 vs FY 2022.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.0847457627118644,
+      "latency_ms": 437.8066679928452,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_04458",
+      "question": "We want to calculate a financial metric. Please help us compute it by basing your answers off of the statement of income and the statement of cash flows. Here's the question: what is the FY2015 unadjusted EBITDA % margin for Netflix? Calculate unadjusted EBITDA using unadjusted operating income and D&A (from cash flow statement).",
+      "ticker": "NFLX",
+      "years": [
+        2015
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "operating income"
+      ],
+      "predicted": "2.1% (in millions)",
+      "gold": "5.4%",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.4305555555555556,
+      "latency_ms": 614.2638419987634,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_03282",
+      "question": "What is Netflix's year end FY2017 total current liabilities (in USD millions)? Base your judgments on the information provided primarily in the balance sheet.",
+      "ticker": "NFLX",
+      "years": [
+        2017
+      ],
+      "route_type": "rag",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "total current liabilities"
+      ],
+      "predicted": "$5.47 billion",
+      "gold": "$5466.00",
+      "official_correct": false,
+      "internal_correct": true,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 18.047099991235882,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_04302",
+      "question": "We need to calculate a reasonable approximation (or exact number if possible) of a financial metric. Basing your judgment by information plainly provided in the statement of income, what is Nike's three year average of cost of goods sold as a % of revenue from FY2016 to FY2018? Answer in units of percents and round to one decimal place.",
+      "ticker": "NKE",
+      "years": [
+        2018
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [
+        "cost of goods sold",
+        "revenue"
+      ],
+      "predicted": "44.0% (Source 1, Table 1)",
+      "gold": "55.1%",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.6355140186915887,
+      "latency_ms": 1700.7859490113333,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_03531",
+      "question": "According to the details clearly outlined within the balance sheet, how much total current assets did Nike have at the end of FY2019? Answer in USD millions.",
+      "ticker": "NKE",
+      "years": [
+        2019
+      ],
+      "route_type": "rag",
+      "actual_route": "xbrl",
+      "operation": "existence",
+      "metrics": [
+        "total current assets"
+      ],
+      "predicted": "yes",
+      "gold": "$16525.00",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "no_match",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 14.996589976362884,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_04080",
+      "question": "When primarily referencing the income statement and the statement of financial position, what is the FY2021 inventory turnover ratio for Nike? Inventory turnover ratio is defined as: (FY2021 COGS) / (average inventory between FY2020 and FY2021). Round your answer to two decimal places.",
+      "ticker": "NKE",
+      "years": [
+        2021
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "inventory"
+      ],
+      "predicted": "2.1",
+      "gold": "3.46",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.3111111111111111,
+      "latency_ms": 507.7500219922513,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01163",
+      "question": "Among operations, investing, and financing activities, which brought in the most (or lost the least) cash flow for Nike in FY2023?",
+      "ticker": "NKE",
+      "years": [
+        2023
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [],
+      "predicted": "Investing activities brought in the most cash flow for Nike in FY2023, which was $10.8 billion. (Source 3)",
+      "gold": "Among the three, cash flow from operations was the highest for Nike in FY2023.",
+      "official_correct": false,
+      "internal_correct": true,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.34502923976608185,
+      "latency_ms": 4040.063829976134,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00080",
+      "question": "Does Paypal have positive working capital based on FY2022 data? If working capital is not a useful or relevant metric for this company, then please state that and explain why.",
+      "ticker": "PYPL",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "narrative",
+      "metrics": [],
+      "predicted": "No, based on FY2022 data, PayPal does not have positive working capital.",
+      "gold": "Yes. Paypal has a positive working capital of $ 1.6Bn as of FY2022 end.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.11976047904191617,
+      "latency_ms": 632.3643590440042,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_04980",
+      "question": "What is the FY2021 capital expenditure amount (in USD billions) for PepsiCo? Respond to the question by assuming the perspective of an investment analyst who can only use the details shown within the statement of cash flows.",
+      "ticker": "PEP",
+      "years": [
+        2021
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "capital expenditure"
+      ],
+      "predicted": "$935.0 million",
+      "gold": "$4.60",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 59.19547297526151,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01009",
+      "question": "What are the geographies that Pepsico primarily operates in as of FY2022?",
+      "ticker": "PEP",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "narrative",
+      "metrics": [
+        "eps"
+      ],
+      "predicted": "United States, China, Russia, India, Brazil, Russia, Turkey, Russia, Iran, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia, Russia",
+      "gold": "As of FY2022, Pepsico primarily operates in the following geographies: North America, Latin America, Europe, Africa, Middle East, South Asia, Asia Pacific, Australia, New Zealand and China.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "no_match",
+      "retrieval_recall_at_5": 0.42338709677419356,
+      "latency_ms": 6653.946954000276,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00735",
+      "question": "Has Pepsico reported any materially important ongoing legal battles from FY2022 and FY2021?",
+      "ticker": "PEP",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "eps"
+      ],
+      "predicted": "$6.45 per share",
+      "gold": "No, Pepsico is not involved in material legal battles.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "no_match",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 25.460286007728428,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01328",
+      "question": "What is the quantity of restructuring costs directly outlined in Pepsico's income statements for FY2022? If restructuring costs are not explicitly outlined then state 0.",
+      "ticker": "PEP",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "eps"
+      ],
+      "predicted": "$6.45 per share",
+      "gold": "Pepsico's restructuring costs in FY2022 amounted to $411 million .",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 23.61339598428458,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_03620",
+      "question": "What is the FY2022 unadjusted EBITDA less capex for PepsiCo? Define unadjusted EBITDA as unadjusted operating income + depreciation and amortization [from cash flow statement]. Answer in USD millions. Respond to the question by assuming the perspective of an investment analyst who can only use the details shown within the statement of cash flows and the income statement.",
+      "ticker": "PEP",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [
+        "capex",
+        "depreciation",
+        "operating income"
+      ],
+      "predicted": "$10,694",
+      "gold": "$9068.00",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.39543726235741444,
+      "latency_ms": 590.96556896111,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_04481",
+      "question": "What is the FY2022 unadjusted EBITDA % margin for PepsiCo? Calculate unadjusted EBITDA using unadjusted operating income and D&A (from cash flow statement). Give a response to the question by relying on the details shown in the statement of cash flows and the P&L statement.",
+      "ticker": "PEP",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "operating income"
+      ],
+      "predicted": "10.7% (Source 1, Table 1)",
+      "gold": "16.5%",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.3612167300380228,
+      "latency_ms": 534.7371120005846,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01482",
+      "question": "At the Pepsico AGM held on May 3, 2023, what was the outcome of the shareholder vote on the shareholder proposal for a congruency report by Pepsico on net-zero emissions policies?",
+      "ticker": "PEP",
+      "years": [
+        2023
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "eps"
+      ],
+      "predicted": "$6.59 per share",
+      "gold": "The shareholder proposal for a congruency report by Pepsico on net-zero emissions policies was defeated.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "no_match",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 25.760306976735592,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00705",
+      "question": "By how much did Pepsico increase its unsecured five year revolving credit agreement on May 26, 2023?",
+      "ticker": "PEP",
+      "years": [
+        2023
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "existence",
+      "metrics": [
+        "eps"
+      ],
+      "predicted": "yes",
+      "gold": "$400,000,000 increase.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "no_match",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 23.926922003738582,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00882",
+      "question": "As of May 26, 2023, what is the total amount Pepsico may borrow under its unsecured revolving credit agreements?",
+      "ticker": "PEP",
+      "years": [
+        2023
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "eps"
+      ],
+      "predicted": "$6.59 per share",
+      "gold": "Total amount Pepsico may borrow under unsecured revolving credit agreements = $8,400,000,000.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 23.122849001083523,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01474",
+      "question": "As of FY2023Q1, why did Pepsico raise full year guidance for FY2023?",
+      "ticker": "PEP",
+      "years": [
+        2023
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "existence",
+      "metrics": [
+        "eps"
+      ],
+      "predicted": "yes",
+      "gold": "Pepsico experienced a strong start to FY2023.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "no_match",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 22.639788046944886,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01476",
+      "question": "As of FY2023Q1, by how many percentage points did Pepsico raise full year guidance in respect of core constant currency EPS growth?",
+      "ticker": "PEP",
+      "years": [
+        2023
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "existence",
+      "metrics": [
+        "eps"
+      ],
+      "predicted": "yes",
+      "gold": "Pepsico raised full year guidance in respect of core constant currency EPS growth by 1 percentage point.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "no_match",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 22.639536997303367,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00302",
+      "question": "Did Pfizer grow its PPNE between FY20 and FY21?",
+      "ticker": "PFE",
+      "years": [
+        2021
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "existence",
+      "metrics": [],
+      "predicted": "No. Pfizer's net income decreased from $100.7 billion in FY20 to $101.1 billion in FY21. (PFE FY2021 - Financial Statements and Supplementary Data, Page 98)",
+      "gold": "Yes, change in PPNE was positive year over year",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.4225352112676056,
+      "latency_ms": 861.9178409571759,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00702",
+      "question": "Were there any potential events that are not in Pfizer's standard business operations that substantially increased net income in 2019?",
+      "ticker": "PFE",
+      "years": [
+        2021
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "net income"
+      ],
+      "predicted": "No.\n\nThe text indicates that the increase in net income in 2021 was \"partially attributable to the favorable change in the jurisdictional mix of earnings as a result of operating fluctuations in the normal course of business.\"",
+      "gold": "Yes, the gain on completion of Consumer Healthcare JV Transaction",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.34959349593495936,
+      "latency_ms": 721.1746569955721,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_02416",
+      "question": "What are three main companies acquired by Pfizer mentioned in this 10K report?",
+      "ticker": "PFE",
+      "years": [
+        2021
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "Allergan, King, and Sugen. (Source 1, 10.1)",
+      "gold": "Trillium, Array, and Therachon",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "no_match",
+      "retrieval_recall_at_5": 0.4626865671641791,
+      "latency_ms": 673.8142159883864,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00283",
+      "question": "How much does Pfizer expect to pay to spin off Upjohn in the future in USD million?",
+      "ticker": "PFE",
+      "years": [
+        2023
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "$277",
+      "gold": "77.78",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.6451612903225806,
+      "latency_ms": 591.1421839846298,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00724",
+      "question": "For Pfizer, which geographic region had the biggest drop in Q22023 year over year revenues (on a percentage basis)?",
+      "ticker": "PFE",
+      "years": [
+        2023
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "percentage_change",
+      "metrics": [
+        "revenue"
+      ],
+      "predicted": "Emerging markets revenues decreased 40% in 2023 compared to 2022. (Source 1, Paragraph 2)",
+      "gold": "Developed Rest of the World",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "no_match",
+      "retrieval_recall_at_5": 0.42857142857142855,
+      "latency_ms": 579.0088340290822,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_02419",
+      "question": "As of Q2'2023, is Pfizer spinning off any large business segments?",
+      "ticker": "PFE",
+      "years": [
+        2023
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "No. (Source 1, Section 1)",
+      "gold": "Yes, it's spinning off Upjohn.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.41935483870967744,
+      "latency_ms": 565.168630972039,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00746",
+      "question": "Which debt securities are registered to trade on a national securities exchange under Ulta Beauty's name as of FY2023?",
+      "ticker": "ULTA",
+      "years": [
+        2023
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "Ulta Beauty common stock is registered to trade on a national securities exchange under Ulta Beauty's name. (Source 1, Risk Factors)",
+      "gold": "There are none",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "no_match",
+      "retrieval_recall_at_5": 0.18811881188118812,
+      "latency_ms": 685.9867459861562,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00521",
+      "question": "What are major acquisitions that Ulta Beauty has done in FY2023 and FY2022?",
+      "ticker": "ULTA",
+      "years": [
+        2023
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "Ulta Beauty has not announced any major acquisitions in FY2023 or FY2022.",
+      "gold": "Ulta Beauty did not make any acquisitions in FY2023 and FY2022.",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.19642857142857142,
+      "latency_ms": 650.327198964078,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00601",
+      "question": "What drove the reduction in SG&A expense as a percent of net sales in FY2023?",
+      "ticker": "ULTA",
+      "years": [
+        2023
+      ],
+      "route_type": "rag",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "net sales"
+      ],
+      "predicted": "$10.21 billion",
+      "gold": "Lower marketing expenses and leverage of incentive compensation due to higher sales. The answer here assumes FY2023 refers to the 12 months ended on January 28, 2023 (although the company refers to this period as its fiscal 2022.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 14.342174981720746,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00603",
+      "question": "What drove the increase in Ulta Beauty's merchandise inventories balance at end of FY2023?",
+      "ticker": "ULTA",
+      "years": [
+        2023
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "absolute_change",
+      "metrics": [
+        "inventory"
+      ],
+      "predicted": "$1.3 billion, as a result of increased demand across all of our channels. [Source 1, Risk Factors]",
+      "gold": "Increase in Merchandise inventories balance was driven by the opening of 47 new stores. The answer here assumes FY2023 refers to the 12 months ended on January 28, 2023 (although the company refers to this period as its fiscal 2022.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.5121951219512195,
+      "latency_ms": 675.0246559968218,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00605",
+      "question": "What percent of Ulta Beauty's total spend on stock repurchases for FY 2023 occurred in Q4 of FY2023?",
+      "ticker": "ULTA",
+      "years": [
+        2023
+      ],
+      "route_type": "rag",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "share repurchase"
+      ],
+      "predicted": "$900.0 million",
+      "gold": "36%. The answer here assumes FY2023 refers to the 12 months ended on January 28, 2023 (although the company refers to this period as its fiscal 2022.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 13.31284298794344,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00606",
+      "question": "Did Ulta Beauty's wages expense as a percent of net sales increase or decrease in FY2023?",
+      "ticker": "ULTA",
+      "years": [
+        2023
+      ],
+      "route_type": "rag",
+      "actual_route": "xbrl",
+      "operation": "existence",
+      "metrics": [
+        "net sales"
+      ],
+      "predicted": "yes",
+      "gold": "Wages expense as a percent of net sales increased in FY2023. The answer here assumes FY2023 refers to the 12 months ended on January 28, 2023 (although the company refers to this period as its fiscal 2022.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "no_match",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 10.083417990244925,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00859",
+      "question": "Among all of the derivative instruments that Verizon used to manage the exposure to fluctuations of foreign currencies exchange rates or interest rates, which one had the highest notional value in FY 2021?",
+      "ticker": "VZ",
+      "years": [
+        2021
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "Cross Currency Swaps with a notional amount of $750 million. [Source 1, 10]",
+      "gold": "Cross currency swaps. Its notional value was $32,502 million.",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.7941176470588235,
+      "latency_ms": 649.7010120074265,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_02024",
+      "question": "As of FY 2021, how much did Verizon expect to pay for its retirees in 2024?",
+      "ticker": "VZ",
+      "years": [
+        2021
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "existence",
+      "metrics": [],
+      "predicted": "$1.7 billion for 2024. (Source 1, Page 88)",
+      "gold": "The estimated pension benefits were $1097 million, and the estimated health care and life insurance benefits were $862 million.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.6530612244897959,
+      "latency_ms": 553.5642070462927,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00216",
+      "question": "Does Verizon have a reasonably healthy liquidity profile based on its quick ratio for FY 2022? If the quick ratio is not relevant to measure liquidity, please state that and explain why.",
+      "ticker": "VZ",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [],
+      "predicted": "Yes, Verizon has a reasonably healthy liquidity profile based on its quick ratio for FY 2022. The quick ratio for FY 2022 was 2.1, which is above the generally accepted minimum of 1.0. (Source 1)",
+      "gold": "No. The quick ratio was approximately 0.54 for Verizon. It indicated that Verizon does not have a healthy liquidity profile.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.35074626865671643,
+      "latency_ms": 885.359600011725,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00215",
+      "question": "Is Verizon a capital intensive business based on FY 2022 data?",
+      "ticker": "VZ",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "Yes.\n\nSource 1, Page 1",
+      "gold": "Yes. Verizon's capital intensity ratio was approximately 2.774729. This means that it took approximately $2.77 of assets to generate $1 of revenue and thus, Verizon can be considered capital intensive.",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.2847222222222222,
+      "latency_ms": 571.7567090177909,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00566",
+      "question": "Has Verizon increased its debt on balance sheet between 2022 and the 2021 fiscal period?",
+      "ticker": "VZ",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "absolute_change",
+      "metrics": [],
+      "predicted": "Yes, Verizon increased its debt by $1.2 billion between FY2021 and FY2022. (Source 1, Section 1)",
+      "gold": "No. Verizon's debt decreased by $229 million.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.3893805309734513,
+      "latency_ms": 737.2909290133975,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_06247",
+      "question": "What is FY2018 days payable outstanding (DPO) for Walmart? DPO is defined as: 365 * (average accounts payable between FY2017 and FY2018) / (FY2018 COGS + change in inventory between FY2017 and FY2018). Round your answer to two decimal places. Please base your judgments on the information provided primarily in the statement of financial position and the P&L statement.",
+      "ticker": "WMT",
+      "years": [
+        2018
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [
+        "accounts payable",
+        "inventory"
+      ],
+      "predicted": "41.58",
+      "gold": "42.69",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.6917293233082706,
+      "latency_ms": 634.9513410241343,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_04784",
+      "question": "Based on the information provided primarily in the statement of income, what is the FY2018 - FY2019 change in unadjusted operating income % margin for Walmart? Answer in units of percents and round to one decimal place.",
+      "ticker": "WMT",
+      "years": [
+        2019
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "operating income"
+      ],
+      "predicted": "-0.3% (2.3%) [Source 1, 1]",
+      "gold": "0.2%",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.30985915492957744,
+      "latency_ms": 655.5632009985857,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_06741",
+      "question": "What is the FY2018 - FY2020 3 year average unadjusted EBITDA % margin for Walmart? Define unadjusted EBITDA as unadjusted operating income + depreciation and amortization from the cash flow statement. Answer in units of percents and round to one decimal place. Calculate what was asked by utilizing the line items clearly shown in the P&L statement and the cash flow statement.",
+      "ticker": "WMT",
+      "years": [
+        2020
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "ratio",
+      "metrics": [
+        "depreciation",
+        "operating income"
+      ],
+      "predicted": "0.1302",
+      "gold": "6.2%",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 53.35605499567464,
+      "fallback_used": false,
+      "error": ""
+    }
+  ]
+}

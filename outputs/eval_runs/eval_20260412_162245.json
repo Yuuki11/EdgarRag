@@ -1,0 +1,140 @@
+{
+  "summary": {
+    "total_questions": 5,
+    "official_correct": 0,
+    "official_accuracy": 0.0,
+    "internal_correct": 0,
+    "internal_accuracy": 0.0,
+    "avg_retrieval_recall_at_5": 0.373060028630593,
+    "avg_latency_ms": 857.9150764155202,
+    "total_elapsed_s": 4.293020725250244,
+    "route_breakdown": {
+      "xbrl": {
+        "total": 1,
+        "official_correct": 0,
+        "internal_correct": 0,
+        "official_accuracy": 0.0,
+        "internal_accuracy": 0.0
+      },
+      "rag": {
+        "total": 4,
+        "official_correct": 0,
+        "internal_correct": 0,
+        "official_accuracy": 0.0,
+        "internal_accuracy": 0.0
+      }
+    },
+    "subset_filter": null,
+    "scorer": "official"
+  },
+  "results": [
+    {
+      "financebench_id": "financebench_id_03029",
+      "question": "What is the FY2018 capital expenditure amount (in USD millions) for 3M? Give a response to the question by relying on the details shown in the cash flow statement.",
+      "ticker": "MMM",
+      "years": [
+        2018
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [
+        "capital expenditure",
+        "cash"
+      ],
+      "predicted": "$10.7 billion (MMM FY2018 \u2014 Financial Statements and Supplementary Data, Cash flows from operating activities)",
+      "gold": "$1577.00",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.36585365853658536,
+      "latency_ms": 2021.9984599971212,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_04672",
+      "question": "Assume that you are a public equities analyst. Answer the following question by primarily using information that is shown in the balance sheet: what is the year end FY2018 net PPNE for 3M? Answer in USD billions.",
+      "ticker": "MMM",
+      "years": [
+        2018
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "$40.8",
+      "gold": "$8.70",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.2872340425531915,
+      "latency_ms": 536.6524870041758,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00499",
+      "question": "Is 3M a capital-intensive business based on FY2022 data?",
+      "ticker": "MMM",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "Yes.\n\nSource: [Source 1: MMM FY2022 \u2014 Financial Statements and Supplementary Data]",
+      "gold": "No, the company is managing its CAPEX and Fixed Assets pretty efficiently, which is evident from below key metrics:\nCAPEX/Revenue Ratio: 5.1%\nFixed assets/Total Assets: 20%\nReturn on Assets= 12.4%",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.3128205128205128,
+      "latency_ms": 628.7013460532762,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01226",
+      "question": "What drove operating margin change as of FY2022 for 3M? If operating margin is not a useful metric for a company like this, then please state that and explain why.",
+      "ticker": "MMM",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [],
+      "predicted": "3.8%",
+      "gold": "Operating Margin for 3M in FY2022 has decreased by 1.7% primarily due to: \n-Decrease in gross Margin\n-mostly one-off charges including Combat Arms Earplugs litigation, impairment related to exiting PFAS manufacturing, costs related to exiting Russia and divestiture-related restructuring\ncharges",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.417910447761194,
+      "latency_ms": 503.90409503597766,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01865",
+      "question": "If we exclude the impact of M&A, which segment has dragged down 3M's overall growth in 2022?",
+      "ticker": "MMM",
+      "years": [
+        2022
+      ],
+      "route_type": "rag",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "3M's overall growth was dragged down by the Advanced Materials Division. (Source 1, Table 1)",
+      "gold": "The consumer segment shrunk by 0.9% organically.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.48148148148148145,
+      "latency_ms": 598.3189939870499,
+      "fallback_used": false,
+      "error": ""
+    }
+  ]
+}
