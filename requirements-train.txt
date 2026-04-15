@@ -1,0 +1,20 @@
+# Install on top of requirements.txt when you want to fine-tune.
+# The Docker training image starts from the latest selected PyTorch/CUDA image
+# and then installs these Python training dependencies.
+
+-r requirements.txt
+
+# Training stack
+torch>=2.11.0
+transformers>=4.44.0
+datasets>=2.20.0
+trl>=0.9.6
+accelerate>=0.33.0
+peft>=0.12.0
+bitsandbytes>=0.43.0
+
+# Experiment tracking
+wandb>=0.17.0
+
+# unsloth — install via:
+#   pip install unsloth

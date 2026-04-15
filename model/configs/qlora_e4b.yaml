@@ -1,0 +1,42 @@
+# FinEdgar Gemma 4 E2B QLoRA Configuration
+# Hardware target: RTX 4070 12GB VRAM
+
+model:
+  name: "google/gemma-4-e2b-it"
+  load_in_4bit: true
+  max_seq_length: 2048  # 2B model fits comfortably in 12GB VRAM
+  dtype: null  # Auto-detect
+
+lora:
+  r: 32
+  lora_alpha: 32
+  lora_dropout: 0
+  bias: "none"
+  use_gradient_checkpointing: "unsloth"
+  finetune_vision_layers: false
+
+training:
+  per_device_train_batch_size: 1
+  per_device_eval_batch_size: 2
+  gradient_accumulation_steps: 4
+  learning_rate: 1e-4
+  num_train_epochs: 3
+  warmup_steps: 200
+  optim: "adamw_8bit"
+  weight_decay: 0.001
+  lr_scheduler_type: "cosine"
+  max_steps: -1  # Use num_train_epochs instead
+  logging_steps: 10
+  evaluation_strategy: "epoch"
+  save_steps: 500
+  seed: 42
+
+output:
+  dir: "./outputs/finedgar-gemma4-e4b"
+  wandb_project: "finedgar"
+
+# Ablation checkpoints to save
+ablation:
+  save_base: true          # Save base model config before training
+  save_after_convfinqa: true  # Save after training on just ConvFinQA
+  save_final: true         # Save final model after all data

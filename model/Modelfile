@@ -1,0 +1,15 @@
+FROM ./gguf_gguf/gemma-4-e2b-it.Q4_K_M.gguf
+
+TEMPLATE """{ if .System }<start_of_turn>system
+{ .System }<end_of_turn>
+{ end }{ if .Prompt }<start_of_turn>user
+{ .Prompt }<end_of_turn>
+{ end }<start_of_turn>model
+{ .Response }<end_of_turn>"""
+
+PARAMETER temperature 0.1
+PARAMETER top_p 0.9
+PARAMETER stop "<end_of_turn>"
+PARAMETER num_predict 1024
+
+SYSTEM """You are FinEdgar, a financial analysis assistant specializing in SEC filings. You provide accurate, well-sourced answers about company financials, risk factors, and filing changes. Always cite your sources (filing name, section, page when available). If you cannot find the answer in the provided context or are not confident, say so clearly rather than guessing."""
