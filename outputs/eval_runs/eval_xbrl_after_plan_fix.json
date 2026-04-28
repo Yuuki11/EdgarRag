@@ -1,0 +1,1324 @@
+{
+  "summary": {
+    "total_questions": 55,
+    "official_correct": 22,
+    "official_accuracy": 0.4,
+    "internal_correct": 23,
+    "internal_accuracy": 0.41818181818181815,
+    "avg_retrieval_recall_at_5": 0.15418673011246248,
+    "avg_latency_ms": 1352.1607086951421,
+    "total_elapsed_s": 74.38542461395264,
+    "route_breakdown": {
+      "xbrl": {
+        "total": 55,
+        "official_correct": 22,
+        "internal_correct": 23,
+        "official_accuracy": 0.4,
+        "internal_accuracy": 0.41818181818181815
+      }
+    },
+    "subset_filter": "xbrl",
+    "scorer": "official"
+  },
+  "results": [
+    {
+      "financebench_id": "financebench_id_03029",
+      "question": "What is the FY2018 capital expenditure amount (in USD millions) for 3M? Give a response to the question by relying on the details shown in the cash flow statement.",
+      "ticker": "MMM",
+      "years": [
+        2018
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [
+        "capex",
+        "capital expenditure"
+      ],
+      "predicted": "I cannot find the FY2018 capital expenditure amount in the provided excerpts.\n\nSource: None",
+      "gold": "$1577.00",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.3073170731707317,
+      "latency_ms": 7715.521253994666,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_02987",
+      "question": "What is the FY2019 fixed asset turnover ratio for Activision Blizzard? Fixed asset turnover ratio is defined as: FY2019 revenue / (average PP&E between FY2018 and FY2019). Round your answer to two decimal places. Base your judgments on the information provided primarily in the statement of income and the statement of financial position.",
+      "ticker": "ATVI",
+      "years": [
+        2019
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "ratio_avg_balance",
+      "metrics": [
+        "revenue",
+        "net ppe"
+      ],
+      "predicted": "24.2579",
+      "gold": "24.26",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 45.749209937639534,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_07966",
+      "question": "What is the FY2017 - FY2019 3 year average of capex as a % of revenue for Activision Blizzard? Answer in units of percents and round to one decimal place. Calculate (or extract) the answer from the statement of income and the cash flow statement.",
+      "ticker": "ATVI",
+      "years": [
+        2019
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "three_year_avg_ratio",
+      "metrics": [
+        "capex",
+        "revenue"
+      ],
+      "predicted": "1.91%",
+      "gold": "1.9%",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 74.3336669402197,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_04735",
+      "question": "You are an investment banker and your only resource(s) to answer the following question is (are): the statement of financial position and the cash flow statement. Here's the question: what is the FY2015 operating cash flow ratio for Adobe? Operating cash flow ratio is defined as: cash from operations / total current liabilities. Round your answer to two decimal places.",
+      "ticker": "ADBE",
+      "years": [
+        2015
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "ratio",
+      "metrics": [
+        "operating cash flow",
+        "total current liabilities"
+      ],
+      "predicted": "0.6639",
+      "gold": "0.66",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "exact",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 40.98608694039285,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_07507",
+      "question": "What is Adobe's year-over-year change in unadjusted operating income from FY2015 to FY2016 (in units of percents and round to one decimal place)? Give a solution to the question by using the income statement.",
+      "ticker": "ADBE",
+      "years": [
+        2016
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "percentage_change",
+      "metrics": [
+        "operating income"
+      ],
+      "predicted": "65.39%",
+      "gold": "65.4%",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 38.36292400956154,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_03856",
+      "question": "What is the FY2017 operating cash flow ratio for Adobe? Operating cash flow ratio is defined as: cash from operations / total current liabilities. Round your answer to two decimal places. Please utilize information provided primarily within the balance sheet and the cash flow statement.",
+      "ticker": "ADBE",
+      "years": [
+        2017
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "ratio",
+      "metrics": [
+        "operating cash flow",
+        "total current liabilities"
+      ],
+      "predicted": "0.8258",
+      "gold": "0.83",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 36.901241983287036,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00591",
+      "question": "Does Adobe have an improving Free cashflow conversion as of FY2022?",
+      "ticker": "ADBE",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "existence",
+      "metrics": [],
+      "predicted": "No.\nInformation regarding cash flow from operations and cash flow from investing activities is not provided in the context.",
+      "gold": "Yes, the FCF conversion (using net income as the denominator) for Adobe has improved by ~13% from 143% in 2021 to 156% in 2022",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.25757575757575757,
+      "latency_ms": 2310.101793031208,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_10420",
+      "question": "Based on the information provided primarily in the statement of financial position and the statement of income, what is AES's FY2022 return on assets (ROA)? ROA is defined as: FY2022 net income / (average total assets between FY2021 and FY2022). Round your answer to two decimal places.",
+      "ticker": "AES",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "ratio_avg_balance",
+      "metrics": [
+        "net income",
+        "total assets"
+      ],
+      "predicted": "-0.0153",
+      "gold": "-0.02",
+      "official_correct": true,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 92.49276807531714,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_08135",
+      "question": "What is Amazon's year-over-year change in revenue from FY2016 to FY2017 (in units of percents and round to one decimal place)? Calculate what was asked by utilizing the line items clearly shown in the statement of income.",
+      "ticker": "AMZN",
+      "years": [
+        2017
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "percentage_change",
+      "metrics": [
+        "revenue"
+      ],
+      "predicted": "30.80%",
+      "gold": "30.8%",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 38.302952074445784,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_08286",
+      "question": "By drawing conclusions from the information stated only in the income statement, what is Amazon's FY2019 net income attributable to shareholders (in USD millions)?",
+      "ticker": "AMZN",
+      "years": [
+        2019
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [
+        "net income",
+        "net income attributable to shareholders"
+      ],
+      "predicted": "11,588\nNet income from Source 1, page 1",
+      "gold": "$11588.00",
+      "official_correct": false,
+      "internal_correct": true,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.3924050632911392,
+      "latency_ms": 1982.8430820489302,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_03069",
+      "question": "Answer the following question as if you are an equity research analyst and have lost internet connection so you do not have access to financial metric providers. According to the details clearly outlined within the P&L statement and the statement of cash flows, what is the FY2015 depreciation and amortization (D&A from cash flow statement) % margin for AMD?",
+      "ticker": "AMD",
+      "years": [
+        2015
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "ratio",
+      "metrics": [
+        "depreciation",
+        "depreciation and amortization"
+      ],
+      "predicted": "100.00%",
+      "gold": "4.2%",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 33.00044103525579,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01198",
+      "question": "What drove revenue change as of the FY22 for AMD?",
+      "ticker": "AMD",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [
+        "revenue"
+      ],
+      "predicted": "1. Net revenue increased by 29% compared to the prior year period.\n2. The increase in net revenue was driven by a 45% increase in Data Center segment revenue primarily due to higher sales of EPYC\u2122 server processors, a 14% increase in Gaming segment revenue primarily due to higher semi-custom product sales, and a significant increase in Embedded segment revenue from the prior year period driven by the inclusion of Xilinx, Inc. (Xilinx) embedded product sales (Source 1).",
+      "gold": "In 2022, AMD reported Higher sales of their EPYC server processors, higher semi-custom product sales, and the inclusion of Xilinx embedded product sales",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.9210526315789473,
+      "latency_ms": 2946.0048660403118,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01279",
+      "question": "Among operations, investing, and financing activities, which brought in the most (or lost the least) cash flow for AMD in FY22?",
+      "ticker": "AMD",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "cashflow_activity_max",
+      "metrics": [
+        "operating cash flow",
+        "investing cash flow",
+        "financing cash flow"
+      ],
+      "predicted": "operating cash flow: $3.56 billion",
+      "gold": "In 2022, AMD brought in the most cashflow from Operations",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 49.28136104717851,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_05718",
+      "question": "How much (in USD billions) did American Water Works pay out in cash dividends for FY2020? Compute or extract the answer by primarily using the details outlined in the statement of cash flows.",
+      "ticker": "AWK",
+      "years": [
+        2020
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "dividends"
+      ],
+      "predicted": "$0.39",
+      "gold": "$0.40",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 16.64051308762282,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_04254",
+      "question": "Basing your judgments off of the cash flow statement and the income statement, what is American Water Works's FY2021 unadjusted operating income + depreciation and amortization from the cash flow statement (unadjusted EBITDA) in USD millions?",
+      "ticker": "AWK",
+      "years": [
+        2021
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "ebitda",
+      "metrics": [
+        "operating income",
+        "depreciation"
+      ],
+      "predicted": "$1,832.00",
+      "gold": "$1832.00",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 33.22699398268014,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01275",
+      "question": "Among operations, investing, and financing activities, which brought in the most (or lost the least) cash flow for Best Buy in FY2023?",
+      "ticker": "BBY",
+      "years": [
+        2023
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "cashflow_activity_max",
+      "metrics": [
+        "operating cash flow",
+        "investing cash flow",
+        "financing cash flow"
+      ],
+      "predicted": "operating cash flow: $1.82 billion",
+      "gold": "Best Buy generated the most cash flow from operating activities in FY 2023 ($1.8 bn)",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 51.32189590949565,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00288",
+      "question": "Was there any drop in Cash & Cash equivalents between FY 2023 and Q2 of FY2024?",
+      "ticker": "BBY",
+      "years": [
+        2024
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "existence",
+      "metrics": [
+        "cash"
+      ],
+      "predicted": "No.\nThe provided excerpts do not contain the necessary figures to determine if there was a drop in Cash & Cash equivalents between FY 2023 and Q2 of FY2024.",
+      "gold": "Yes, there was a decline of ~42% between FY2023 and Q2 of FY 2024.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.3446808510638298,
+      "latency_ms": 3918.7897610245273,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_03838",
+      "question": "What is the FY2019 - FY2020 total revenue growth rate for Block (formerly known as Square)? Answer in units of percents and round to one decimal place. Approach the question asked by assuming the standpoint of an investment banking analyst who only has access to the statement of income.",
+      "ticker": "XYZ",
+      "years": [
+        2020
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "accounts payable",
+        "cost of goods sold",
+        "inventory",
+        "revenue"
+      ],
+      "predicted": "101.0%\nTotal net revenue for the year ended December 31, 2020, increased by $4.8 billion, or 101%, compared to the year ended December 31, 2019. [Source 3]",
+      "gold": "101.5%",
+      "official_correct": false,
+      "internal_correct": true,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.13793103448275862,
+      "latency_ms": 3435.2952470071614,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_07661",
+      "question": "Using the cash flow statement, answer the following question to the best of your abilities: how much did Block (formerly known as Square) generate in cash flow from operating activities in FY2020? Answer in USD millions.",
+      "ticker": "XYZ",
+      "years": [
+        2020
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [],
+      "predicted": "1. Information on cash flow from operating activities for Block (formerly known as Square) in FY2020 is not available in the provided excerpts.\n2. No relevant section in the provided sources was found.",
+      "gold": "$382.00",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.10801393728222997,
+      "latency_ms": 3217.3410520190373,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00517",
+      "question": "Are there any product categories / service categories that represent more than 20% of Boeing's revenue for FY2022?",
+      "ticker": "BA",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "revenue"
+      ],
+      "predicted": "$66.61 billion",
+      "gold": "Yes. Boeing has product and service categories that represent more than 20% of Boeing's revenue for FY2022. These categories are Commercial Airplanes which comprises 39% of total revenue, Defence which comprises 35% of total revenue and Services which comprises 26% of total revenue.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 27.92530390433967,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_03473",
+      "question": "What is the FY2017 return on assets (ROA) for Coca Cola? ROA is defined as: FY2017 net income / (average total assets between FY2016 and FY2017). Round your answer to two decimal places. Give a response to the question by relying on the details shown in the balance sheet and the P&L statement.",
+      "ticker": "KO",
+      "years": [
+        2017
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "ratio_avg_balance",
+      "metrics": [
+        "net income",
+        "total assets"
+      ],
+      "predicted": "0.0142",
+      "gold": "0.01",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "exact",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 70.54183899890631,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_06272",
+      "question": "What is Coca Cola's FY2022 dividend payout ratio (using total cash dividends paid and net income attributable to shareholders)? Round answer to two decimal places. Answer the question asked by assuming you only have access to information clearly displayed in the cash flow statement and the income statement.",
+      "ticker": "KO",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "payout_ratio",
+      "metrics": [
+        "dividends",
+        "net income"
+      ],
+      "predicted": "0.7982",
+      "gold": "0.8",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 45.738699031062424,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_02981",
+      "question": "Taking into account the information outlined in the income statement, what is the FY2019 - FY2021 3 year average unadjusted operating income % margin for Corning? Answer in units of percents and round to one decimal place.",
+      "ticker": "GLW",
+      "years": [
+        2021
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "three_year_avg_ratio",
+      "metrics": [
+        "operating income",
+        "revenue"
+      ],
+      "predicted": "10.28%",
+      "gold": "10.3%",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 108.18820400163531,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_04209",
+      "question": "Using only the information within the balance sheet, how much total assets did Costco have at the end of FY2021? Answer in USD millions.",
+      "ticker": "COST",
+      "years": [
+        2021
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "total assets"
+      ],
+      "predicted": "$59,268.00",
+      "gold": "$59268.00",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 16.646943986415863,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_05915",
+      "question": "What is the FY2018 fixed asset turnover ratio for CVS Health? Fixed asset turnover ratio is defined as: FY2018 revenue / (average PP&E between FY2017 and FY2018). Round your answer to two decimal places. Calculate what was asked by utilizing the line items clearly shown in the P&L statement and the balance sheet.",
+      "ticker": "CVS",
+      "years": [
+        2018
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "ratio_avg_balance",
+      "metrics": [
+        "revenue",
+        "net ppe"
+      ],
+      "predicted": "17.9824",
+      "gold": "17.98",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "exact",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 170.48326693475246,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01244",
+      "question": "Has CVS Health paid dividends to common shareholders in Q2 of FY2022?",
+      "ticker": "CVS",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "existence",
+      "metrics": [
+        "dividends"
+      ],
+      "predicted": "yes",
+      "gold": "Yes, CVS paid a $ 0.55 dividend per share every quarter in FY2022",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "exact",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 21.942591993138194,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_04103",
+      "question": "What is the FY2019 cash conversion cycle (CCC) for General Mills? CCC is defined as: DIO + DSO - DPO. DIO is defined as: 365 * (average inventory between FY2018 and FY2019) / (FY2019 COGS). DSO is defined as: 365 * (average accounts receivable between FY2018 and FY2019) / (FY2019 Revenue). DPO is defined as: 365 * (average accounts payable between FY2018 and FY2019) / (FY2019 COGS + change in inventory between FY2018 and FY2019). Round your answer to two decimal places. Address the question by using the line items and information shown within the income statement and the balance sheet.",
+      "ticker": "GIS",
+      "years": [
+        2019
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "dpo",
+      "metrics": [
+        "accounts payable",
+        "inventory",
+        "cost of goods sold"
+      ],
+      "predicted": "92.70",
+      "gold": "-3.7",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 100.22071108687669,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_04854",
+      "question": "According to the information provided in the statement of cash flows, what is the FY2020 free cash flow (FCF) for General Mills? FCF here is defined as: (cash from operations - capex). Answer in USD millions.",
+      "ticker": "GIS",
+      "years": [
+        2020
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "capex",
+        "free cash flow",
+        "operating cash flow"
+      ],
+      "predicted": "1. $1,750.0 million\n2. FCF = Net cash provided by operating activities - Purchases of land, buildings, and equipment ($2,210.8 - $460.8) (Source 1)",
+      "gold": "$3215.00",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.966183574879227,
+      "latency_ms": 3382.888666004874,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_10136",
+      "question": "We want to calculate a financial metric. Please help us compute it by basing your answers off of the cash flow statement and the income statement. Here's the question: what is the FY2022 retention ratio (using total cash dividends paid and net income attributable to shareholders) for General Mills? Round answer to two decimal places.",
+      "ticker": "GIS",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "retention_ratio",
+      "metrics": [
+        "dividends",
+        "net income"
+      ],
+      "predicted": "0.5403",
+      "gold": "0.54",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "exact",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 41.99433093890548,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00651",
+      "question": "Is growth in JnJ's adjusted EPS expected to accelerate in FY2023?",
+      "ticker": "JNJ",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [
+        "eps"
+      ],
+      "predicted": "No.\nThe provided excerpts do not contain information regarding JNJ's adjusted EPS growth expectations in FY2023.\n[Source 1]",
+      "gold": "No, rate of growth in adjusted EPS is expected to decelerate slightly from 3.6% in FY2022 to 3.5% in FY2023.",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.4576271186440678,
+      "latency_ms": 2803.4036149038,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01491",
+      "question": "What is the amount of the cash proceeds that JnJ realised from the separation of Kenvue (formerly Consumer Health business segment), as of August 30, 2023?",
+      "ticker": "JNJ",
+      "years": [
+        2023
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "cash"
+      ],
+      "predicted": "11,174\n$8,047 (Proceeds of short and long-term debt, net of issuance cost, related to the debt that transferred to Kenvue at separation) + $4,241 (Proceeds from Kenvue initial public offering) - $1,114 (Cash transferred to Kenvue at separation)",
+      "gold": "JnJ realised $13.2 billion in cash proceeds from the separation of Kenvue.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.41954022988505746,
+      "latency_ms": 4424.189020064659,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00299",
+      "question": "Which of JPM's business segments had the lowest net revenue in 2021 Q1?",
+      "ticker": "JPM",
+      "years": [
+        2021
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "revenue"
+      ],
+      "predicted": "$121.65 billion",
+      "gold": "Corporate. Its net revenue was -$473 million.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 40.54620396345854,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00394",
+      "question": "In 2022 Q2, which of JPM's business segments had the highest net income?",
+      "ticker": "JPM",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "net income"
+      ],
+      "predicted": "$37.68 billion",
+      "gold": "Corporate & Investment Bank. Its net income was $3725 million.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 38.09567401185632,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_04412",
+      "question": "We need to calculate a reasonable approximation (or exact number if possible) of a financial metric. Basing your judgment by information plainly provided in the balance sheet and the P&L statement, what is Lockheed Martin's FY2020 asset turnover ratio? Asset turnover ratio is defined as: FY2020 revenue / (average total assets between FY2019 and FY2020). Round your answer to two decimal places.",
+      "ticker": "LMT",
+      "years": [
+        2020
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "revenue",
+        "total assets"
+      ],
+      "predicted": "I cannot calculate the FY2020 asset turnover ratio because the necessary financial statements (Revenue and Total Assets for FY2019 and FY2020) are not provided in the context.",
+      "gold": "1.33",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.1652542372881356,
+      "latency_ms": 2240.330634987913,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_03718",
+      "question": "What is Lockheed Martin's 2 year total revenue CAGR from FY2020 to FY2022 (in units of percents and round to one decimal place)? Provide a response to the question by primarily using the statement of income.",
+      "ticker": "LMT",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "cagr",
+      "metrics": [
+        "revenue"
+      ],
+      "predicted": "0.45%",
+      "gold": "0.4%",
+      "official_correct": true,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 31.71710204333067,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_03849",
+      "question": "What is the FY2018 - FY2020 3 year average of capex as a % of revenue for MGM Resorts? Answer in units of percents and round to one decimal place. Please utilize information provided primarily within the statement of cash flows and the statement of income.",
+      "ticker": "MGM",
+      "years": [
+        2020
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "three_year_avg_ratio",
+      "metrics": [
+        "capex",
+        "revenue"
+      ],
+      "predicted": "7.87%",
+      "gold": "7.9%",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 97.63509698677808,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01254",
+      "question": "Has MGM Resorts paid dividends to common shareholders in FY2022?",
+      "ticker": "MGM",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "existence",
+      "metrics": [
+        "dividends"
+      ],
+      "predicted": "yes",
+      "gold": "Yes. MGM maintained 0.01$ per share annual dividend through out FY 2022.",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "exact",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 16.736692050471902,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_04458",
+      "question": "We want to calculate a financial metric. Please help us compute it by basing your answers off of the statement of income and the statement of cash flows. Here's the question: what is the FY2015 unadjusted EBITDA % margin for Netflix? Calculate unadjusted EBITDA using unadjusted operating income and D&A (from cash flow statement).",
+      "ticker": "NFLX",
+      "years": [
+        2015
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "ebitda_margin",
+      "metrics": [
+        "operating income",
+        "depreciation",
+        "revenue"
+      ],
+      "predicted": "0.05%",
+      "gold": "5.4%",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 45.929866028018296,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_04302",
+      "question": "We need to calculate a reasonable approximation (or exact number if possible) of a financial metric. Basing your judgment by information plainly provided in the statement of income, what is Nike's three year average of cost of goods sold as a % of revenue from FY2016 to FY2018? Answer in units of percents and round to one decimal place.",
+      "ticker": "NKE",
+      "years": [
+        2018
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [
+        "cost of goods sold",
+        "revenue"
+      ],
+      "predicted": "1. 55.1%\n2. Calculated as the average of (Cost of sales / Revenues) for FY2016, FY2017, and FY2018. (Source 2)",
+      "gold": "55.1%",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "exact",
+      "retrieval_recall_at_5": 0.6635514018691588,
+      "latency_ms": 4827.230842085555,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01163",
+      "question": "Among operations, investing, and financing activities, which brought in the most (or lost the least) cash flow for Nike in FY2023?",
+      "ticker": "NKE",
+      "years": [
+        2023
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "cashflow_activity_max",
+      "metrics": [
+        "operating cash flow",
+        "investing cash flow",
+        "financing cash flow"
+      ],
+      "predicted": "operating cash flow: $5.84 billion",
+      "gold": "Among the three, cash flow from operations was the highest for Nike in FY2023.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 40.858307969756424,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_04980",
+      "question": "What is the FY2021 capital expenditure amount (in USD billions) for PepsiCo? Respond to the question by assuming the perspective of an investment analyst who can only use the details shown within the statement of cash flows.",
+      "ticker": "PEP",
+      "years": [
+        2021
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "lookup",
+      "metrics": [
+        "capex",
+        "capital expenditure",
+        "eps"
+      ],
+      "predicted": "1. $1.3 billion\n2. Net capital spending of $1.3 billion in the 24 weeks ended June 12, 2021, as reflected in the cash flow statement. [Source 5]",
+      "gold": "$4.60",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.3389830508474576,
+      "latency_ms": 3247.0594990300015,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01009",
+      "question": "What are the geographies that Pepsico primarily operates in as of FY2022?",
+      "ticker": "PEP",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "narrative",
+      "metrics": [
+        "eps"
+      ],
+      "predicted": "No information regarding the geographies that PepsiCo primarily operates in as of FY2022 is present in the provided excerpts.\nSource: None",
+      "gold": "As of FY2022, Pepsico primarily operates in the following geographies: North America, Latin America, Europe, Africa, Middle East, South Asia, Asia Pacific, Australia, New Zealand and China.",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.25,
+      "latency_ms": 2539.374389918521,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00735",
+      "question": "Has Pepsico reported any materially important ongoing legal battles from FY2022 and FY2021?",
+      "ticker": "PEP",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "existence",
+      "metrics": [
+        "eps"
+      ],
+      "predicted": "No.\nThe provided excerpts mention the risk associated with litigation, but do not detail any materially important ongoing legal battles from FY2022 and FY2021.\nSource: Source 1",
+      "gold": "No, Pepsico is not involved in material legal battles.",
+      "official_correct": true,
+      "internal_correct": true,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.7659574468085106,
+      "latency_ms": 3280.6143710622564,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01328",
+      "question": "What is the quantity of restructuring costs directly outlined in Pepsico's income statements for FY2022? If restructuring costs are not explicitly outlined then state 0.",
+      "ticker": "PEP",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "eps"
+      ],
+      "predicted": "$6.45 per share",
+      "gold": "Pepsico's restructuring costs in FY2022 amounted to $411 million .",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 26.29187097772956,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_03620",
+      "question": "What is the FY2022 unadjusted EBITDA less capex for PepsiCo? Define unadjusted EBITDA as unadjusted operating income + depreciation and amortization [from cash flow statement]. Answer in USD millions. Respond to the question by assuming the perspective of an investment analyst who can only use the details shown within the statement of cash flows and the income statement.",
+      "ticker": "PEP",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "ebitda",
+      "metrics": [
+        "operating income",
+        "depreciation"
+      ],
+      "predicted": "$14,275.00",
+      "gold": "$9068.00",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 45.50714499782771,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_04481",
+      "question": "What is the FY2022 unadjusted EBITDA % margin for PepsiCo? Calculate unadjusted EBITDA using unadjusted operating income and D&A (from cash flow statement). Give a response to the question by relying on the details shown in the statement of cash flows and the P&L statement.",
+      "ticker": "PEP",
+      "years": [
+        2022
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "ebitda_margin",
+      "metrics": [
+        "operating income",
+        "depreciation",
+        "revenue"
+      ],
+      "predicted": "0.17%",
+      "gold": "16.5%",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 66.75251398701221,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01482",
+      "question": "At the Pepsico AGM held on May 3, 2023, what was the outcome of the shareholder vote on the shareholder proposal for a congruency report by Pepsico on net-zero emissions policies?",
+      "ticker": "PEP",
+      "years": [
+        2023
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "eps"
+      ],
+      "predicted": "$6.59 per share",
+      "gold": "The shareholder proposal for a congruency report by Pepsico on net-zero emissions policies was defeated.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "no_match",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 22.212837007828057,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00705",
+      "question": "By how much did Pepsico increase its unsecured five year revolving credit agreement on May 26, 2023?",
+      "ticker": "PEP",
+      "years": [
+        2023
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "absolute_change",
+      "metrics": [
+        "eps"
+      ],
+      "predicted": "I cannot find the information regarding the change in PepsiCo's unsecured five-year revolving credit agreement in the provided excerpts.\n\nSource: None",
+      "gold": "$400,000,000 increase.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "no_match",
+      "retrieval_recall_at_5": 0.09243697478991597,
+      "latency_ms": 2429.222929989919,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00882",
+      "question": "As of May 26, 2023, what is the total amount Pepsico may borrow under its unsecured revolving credit agreements?",
+      "ticker": "PEP",
+      "years": [
+        2023
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "eps"
+      ],
+      "predicted": "$6.59 per share",
+      "gold": "Total amount Pepsico may borrow under unsecured revolving credit agreements = $8,400,000,000.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 25.09119699243456,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01474",
+      "question": "As of FY2023Q1, why did Pepsico raise full year guidance for FY2023?",
+      "ticker": "PEP",
+      "years": [
+        2023
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "narrative",
+      "metrics": [
+        "eps"
+      ],
+      "predicted": "I cannot determine why PepsiCo raised full-year guidance for FY2023 based on the provided excerpts.\nNo information regarding the rationale for raising full-year guidance was found in the provided sources.",
+      "gold": "Pepsico experienced a strong start to FY2023.",
+      "official_correct": false,
+      "internal_correct": true,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.2682926829268293,
+      "latency_ms": 2591.3894150871783,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_01476",
+      "question": "As of FY2023Q1, by how many percentage points did Pepsico raise full year guidance in respect of core constant currency EPS growth?",
+      "ticker": "PEP",
+      "years": [
+        2023
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "lookup",
+      "metrics": [
+        "eps"
+      ],
+      "predicted": "$6.59 per share",
+      "gold": "Pepsico raised full year guidance in respect of core constant currency EPS growth by 1 percentage point.",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 25.34118399489671,
+      "fallback_used": false,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00702",
+      "question": "Were there any potential events that are not in Pfizer's standard business operations that substantially increased net income in 2019?",
+      "ticker": "PFE",
+      "years": [
+        2021
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "net income"
+      ],
+      "predicted": "No.\nThe provided excerpts do not contain information regarding events outside of Pfizer's standard business operations that substantially increased net income in 2019.\n[Source 1, Source 3, Source 4]",
+      "gold": "Yes, the gain on completion of Consumer Healthcare JV Transaction",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "yes_no",
+      "retrieval_recall_at_5": 0.983739837398374,
+      "latency_ms": 2932.869545998983,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_00724",
+      "question": "For Pfizer, which geographic region had the biggest drop in Q22023 year over year revenues (on a percentage basis)?",
+      "ticker": "PFE",
+      "years": [
+        2023
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "percentage_change",
+      "metrics": [
+        "revenue"
+      ],
+      "predicted": "1. International\nThe International region experienced the largest drop in year-over-year revenues, with a decrease of $6,968.",
+      "gold": "Developed Rest of the World",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "no_match",
+      "retrieval_recall_at_5": 0.36507936507936506,
+      "latency_ms": 6218.011882039718,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_04784",
+      "question": "Based on the information provided primarily in the statement of income, what is the FY2018 - FY2019 change in unadjusted operating income % margin for Walmart? Answer in units of percents and round to one decimal place.",
+      "ticker": "WMT",
+      "years": [
+        2019
+      ],
+      "route_type": "xbrl",
+      "actual_route": "rag",
+      "operation": "ratio",
+      "metrics": [
+        "operating income"
+      ],
+      "predicted": "1. -0.3%\n2. Calculated as: (($4,945 / $126,981) - ($5,154 / $123,897)) * 100% using Source 1 and Source 4.",
+      "gold": "0.2%",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.2746478873239437,
+      "latency_ms": 6146.017023012973,
+      "fallback_used": true,
+      "error": ""
+    },
+    {
+      "financebench_id": "financebench_id_06741",
+      "question": "What is the FY2018 - FY2020 3 year average unadjusted EBITDA % margin for Walmart? Define unadjusted EBITDA as unadjusted operating income + depreciation and amortization from the cash flow statement. Answer in units of percents and round to one decimal place. Calculate what was asked by utilizing the line items clearly shown in the P&L statement and the cash flow statement.",
+      "ticker": "WMT",
+      "years": [
+        2020
+      ],
+      "route_type": "xbrl",
+      "actual_route": "xbrl",
+      "operation": "three_year_avg_ratio",
+      "metrics": [
+        "operating income",
+        "revenue"
+      ],
+      "predicted": "4.09%",
+      "gold": "6.2%",
+      "official_correct": false,
+      "internal_correct": false,
+      "official_match_type": "numeric",
+      "retrieval_recall_at_5": 0.0,
+      "latency_ms": 103.34245197009295,
+      "fallback_used": false,
+      "error": ""
+    }
+  ]
+}
