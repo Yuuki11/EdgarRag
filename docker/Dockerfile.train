@@ -1,0 +1,30 @@
+ARG PYTORCH_IMAGE=pytorch/pytorch:2.11.0-cuda13.0-cudnn9-devel
+FROM ${PYTORCH_IMAGE}
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    HF_HOME=/cache/huggingface \
+    TORCH_HOME=/cache/torch \
+    UNSLOTH_COMPILE_DISABLE=0
+
+WORKDIR /app
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends build-essential curl git \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt requirements-train.txt /app/
+RUN python -m pip install --upgrade pip \
+    && python -m pip install -r /app/requirements-train.txt \
+    && python -m pip install --upgrade unsloth
+
+COPY backend /app/backend
+COPY model /app/model
+COPY scripts /app/scripts
+COPY data/companies.json /app/data/companies.json
+COPY data/company_overrides.json /app/data/company_overrides.json
+COPY data/company_tickers.json /app/data/company_tickers.json
+COPY data/benchmarks /app/data/benchmarks
+
+CMD ["python", "-c", "import torch; print('CUDA available:', torch.cuda.is_available()); print(torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'no gpu')"]

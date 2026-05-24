@@ -1,0 +1,48 @@
+services:
+  data-bootstrap:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.runtime
+      target: runtime
+    image: finedgar-runtime:latest
+    command: ["python", "scripts/bootstrap_data.py"]
+    environment:
+      SEC_USER_AGENT: ${SEC_USER_AGENT:?Set SEC_USER_AGENT in .env before running Docker workflows}
+      OLLAMA_HOST: http://ollama:11434
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-finedgar}
+      CHROMADB_PATH: /app/data/vector_index
+      FINEDGAR_FORCE_CPU: ${FINEDGAR_FORCE_CPU:-1}
+      HF_HOME: /cache/huggingface
+      TORCH_HOME: /cache/torch
+    volumes:
+      - ./data:/app/data
+      - ./outputs:/app/outputs
+      - ./model:/app/model
+      - hf-cache:/cache/huggingface
+      - torch-cache:/cache/torch
+    networks:
+      - finedgar
+
+  index-builder:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.runtime
+      target: runtime
+    image: finedgar-runtime:latest
+    command: ["python", "scripts/build_vector_index.py"]
+    environment:
+      SEC_USER_AGENT: ${SEC_USER_AGENT:?Set SEC_USER_AGENT in .env before running Docker workflows}
+      OLLAMA_HOST: http://ollama:11434
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-finedgar}
+      CHROMADB_PATH: /app/data/vector_index
+      FINEDGAR_FORCE_CPU: ${FINEDGAR_FORCE_CPU:-1}
+      HF_HOME: /cache/huggingface
+      TORCH_HOME: /cache/torch
+    volumes:
+      - ./data:/app/data
+      - ./outputs:/app/outputs
+      - ./model:/app/model
+      - hf-cache:/cache/huggingface
+      - torch-cache:/cache/torch
+    networks:
+      - finedgar

@@ -1,0 +1,44 @@
+services:
+  web-api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.runtime
+      target: web
+    image: finedgar-web:latest
+    command: ["python", "-m", "uvicorn", "webapp.backend.main:app", "--host", "0.0.0.0", "--port", "8000"]
+    environment:
+      SEC_USER_AGENT: ${SEC_USER_AGENT:?Set SEC_USER_AGENT in .env before running Docker workflows}
+      OLLAMA_HOST: http://ollama:11434
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-finedgar}
+      CHROMADB_PATH: /app/data/vector_index
+      DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-finedgar}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-finedgar}
+      FINEDGAR_FORCE_CPU: ${FINEDGAR_FORCE_CPU:-1}
+      FINEDGAR_AUTH_SECRET: ${FINEDGAR_AUTH_SECRET:?Set FINEDGAR_AUTH_SECRET in .env before running auth workflows}
+      FINEDGAR_AUTH_COOKIE_SECURE: ${FINEDGAR_AUTH_COOKIE_SECURE:-1}
+      FINEDGAR_PUBLIC_BASE_URL: ${FINEDGAR_PUBLIC_BASE_URL:-http://localhost:8000}
+      FINEDGAR_EMAIL_MODE: ${FINEDGAR_EMAIL_MODE:-console}
+      FINEDGAR_EMAIL_FROM: ${FINEDGAR_EMAIL_FROM:-}
+      FINEDGAR_SMTP_HOST: ${FINEDGAR_SMTP_HOST:-}
+      FINEDGAR_SMTP_PORT: ${FINEDGAR_SMTP_PORT:-587}
+      FINEDGAR_SMTP_USERNAME: ${FINEDGAR_SMTP_USERNAME:-}
+      FINEDGAR_SMTP_PASSWORD: ${FINEDGAR_SMTP_PASSWORD:-}
+      FINEDGAR_SMTP_STARTTLS: ${FINEDGAR_SMTP_STARTTLS:-1}
+      HF_HOME: /cache/huggingface
+      TORCH_HOME: /cache/torch
+    depends_on:
+      ollama:
+        condition: service_started
+      postgres:
+        condition: service_healthy
+      db-migrate:
+        condition: service_completed_successfully
+    ports:
+      - "${FINEDGAR_WEB_PORT:-8000}:8000"
+    volumes:
+      - ./data:/app/data
+      - ./outputs:/app/outputs
+      - ./model:/app/model
+      - hf-cache:/cache/huggingface
+      - torch-cache:/cache/torch
+    networks:
+      - finedgar

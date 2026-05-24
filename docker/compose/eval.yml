@@ -1,0 +1,27 @@
+services:
+  eval:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.runtime
+      target: runtime
+    image: finedgar-runtime:latest
+    command: ["sh", "-c", "python scripts/run_financebench_eval.py --output outputs/eval_runs/eval_docker_$$(date +%Y%m%d_%H%M%S).json"]
+    environment:
+      SEC_USER_AGENT: ${SEC_USER_AGENT:?Set SEC_USER_AGENT in .env before running Docker workflows}
+      OLLAMA_HOST: http://ollama:11434
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-finedgar}
+      CHROMADB_PATH: /app/data/vector_index
+      FINEDGAR_FORCE_CPU: ${FINEDGAR_FORCE_CPU:-1}
+      HF_HOME: /cache/huggingface
+      TORCH_HOME: /cache/torch
+    depends_on:
+      ollama:
+        condition: service_started
+    volumes:
+      - ./data:/app/data
+      - ./outputs:/app/outputs
+      - ./model:/app/model
+      - hf-cache:/cache/huggingface
+      - torch-cache:/cache/torch
+    networks:
+      - finedgar

@@ -1,0 +1,69 @@
+.git/
+.gitignore
+.dockerignore
+
+# Secrets and local env files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+secrets.yaml
+secrets.yml
+
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+build/
+dist/
+*.egg-info/
+
+# Frontend artifacts
+webapp/frontend/node_modules/
+webapp/frontend/dist/
+webapp/frontend/.vite/
+*.tsbuildinfo
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Generated data and model artifacts
+data/filings/
+data/parsed/
+data/chunks/
+data/vector_index/
+data/xbrl_cache/
+data/training/
+model/gguf/
+model/gguf_gguf/
+*.gguf
+*.ggml
+
+# Training and experiment outputs
+outputs/**/checkpoint-*/
+outputs/**/lora-final/
+outputs/**/*.safetensors
+outputs/**/*.bin
+outputs/**/*.pt
+outputs/**/*.pth
+wandb/
+mlruns/
+lightning_logs/
+tb_logs/
+runs/
+
+# Caches, logs, and OS files
+.cache/
+.hf_cache/
+unsloth_compiled_cache/
+*.log
+logs/
+.DS_Store

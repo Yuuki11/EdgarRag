@@ -1,0 +1,26 @@
+name: finedgar-admin
+
+services:
+  admin-console:
+    image: amir20/dozzle:${DOZZLE_VERSION:-latest}
+    environment:
+      DOZZLE_FILTER: ${FINEDGAR_ADMIN_FILTER:-label=com.docker.compose.project=finedgar}
+      DOZZLE_NO_ANALYTICS: "true"
+      DOZZLE_ENABLE_ACTIONS: ${FINEDGAR_ADMIN_ENABLE_ACTIONS:-false}
+      DOZZLE_ENABLE_SHELL: ${FINEDGAR_ADMIN_ENABLE_SHELL:-false}
+      DOZZLE_LEVEL: ${FINEDGAR_ADMIN_LOG_LEVEL:-info}
+    ports:
+      - "127.0.0.1:${FINEDGAR_ADMIN_PORT:-8081}:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - dozzle-data:/data
+    healthcheck:
+      test: ["CMD", "/dozzle", "healthcheck"]
+      interval: 10s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+    restart: unless-stopped
+
+volumes:
+  dozzle-data:

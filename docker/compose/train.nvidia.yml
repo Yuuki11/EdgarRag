@@ -1,0 +1,50 @@
+x-train-service: &train-service
+  build:
+    context: .
+    dockerfile: docker/Dockerfile.train
+    args:
+      PYTORCH_IMAGE: ${PYTORCH_IMAGE:-pytorch/pytorch:2.11.0-cuda13.0-cudnn9-devel}
+  image: finedgar-train:torch2.11.0-cuda13.0
+  gpus: all
+  environment:
+    SEC_USER_AGENT: ${SEC_USER_AGENT:?Set SEC_USER_AGENT in .env before running Docker workflows}
+    OLLAMA_HOST: http://ollama:11434
+    OLLAMA_MODEL: ${OLLAMA_MODEL:-finedgar}
+    HF_TOKEN: ${HF_TOKEN:-}
+    WANDB_API_KEY: ${WANDB_API_KEY:-}
+    WANDB_MODE: ${WANDB_MODE:-offline}
+    HF_HOME: /cache/huggingface
+    TORCH_HOME: /cache/torch
+  depends_on:
+    ollama:
+      condition: service_started
+  volumes:
+    - ./data:/app/data
+    - ./outputs:/app/outputs
+    - ./model:/app/model
+    - hf-cache:/cache/huggingface
+    - torch-cache:/cache/torch
+    - pip-cache:/root/.cache/pip
+  networks:
+    - finedgar
+
+services:
+  train-check:
+    <<: *train-service
+    command: ["python", "-c", "import torch, unsloth; print('CUDA available:', torch.cuda.is_available()); assert torch.cuda.is_available(), 'CUDA is required for QLoRA training'; print(torch.cuda.get_device_name(0))"]
+
+  train-prepare:
+    <<: *train-service
+    command: ["sh", "-c", "python model/training/prepare_data.py --sources convfinqa,phrasebank,xbrl_qa,diff_summaries && python model/training/prepare_data.py --combine && python model/training/prepare_data.py --validate data/training/finedgar_train.jsonl"]
+
+  trainer:
+    <<: *train-service
+    command: ["python", "model/training/train.py", "--config", "model/configs/qlora_e4b.yaml"]
+
+  train-export:
+    <<: *train-service
+    command: ["python", "model/training/export.py"]
+
+  train-verify:
+    <<: *train-service
+    command: ["python", "model/training/verify_model.py", "--model", "${OLLAMA_MODEL:-finedgar}"]

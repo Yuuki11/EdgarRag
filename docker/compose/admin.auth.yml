@@ -1,0 +1,6 @@
+services:
+  admin-console:
+    environment:
+      DOZZLE_AUTH_PROVIDER: simple
+    volumes:
+      - ./docker/admin/users.yml:/data/users.yml:ro
