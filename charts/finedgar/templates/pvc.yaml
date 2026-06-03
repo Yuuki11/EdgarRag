@@ -1,0 +1,20 @@
+{{- $root := . -}}
+{{- range $name, $cfg := .Values.persistence }}
+{{- if and (kindIs "map" $cfg) $cfg.size }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "finedgar.fullname" $root }}-{{ kebabcase $name }}
+  labels:
+    {{- include "finedgar.labels" $root | nindent 4 }}
+spec:
+  accessModes: ["ReadWriteOnce"]
+  {{- if $root.Values.persistence.storageClassName }}
+  storageClassName: {{ $root.Values.persistence.storageClassName | quote }}
+  {{- end }}
+  resources:
+    requests:
+      storage: {{ $cfg.size }}
+{{- end }}
+{{- end }}

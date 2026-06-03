@@ -1,0 +1,142 @@
+nameOverride: ""
+fullnameOverride: ""
+
+image:
+  repository: localhost:5001/finedgar-web
+  tag: latest
+  pullPolicy: IfNotPresent
+
+runtimeImage:
+  repository: localhost:5001/finedgar-runtime
+  tag: latest
+  pullPolicy: IfNotPresent
+
+trainImage:
+  repository: localhost:5001/finedgar-train
+  tag: latest
+  pullPolicy: IfNotPresent
+
+serviceAccount:
+  create: true
+  name: ""
+
+web:
+  replicaCount: 1
+  port: 8000
+  resources:
+    requests:
+      cpu: 250m
+      memory: 1Gi
+    limits:
+      cpu: "1"
+      memory: 3Gi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 4
+  targetCPUUtilizationPercentage: 70
+
+config:
+  ollamaModel: qwen2.5:0.5b
+  chromadbPath: /app/data/vector_index
+  forceCpu: "1"
+  authCookieSecure: "0"
+  publicBaseUrl: http://finedgar.localhost
+  allowedOrigins: http://finedgar.localhost,http://localhost:8000,http://127.0.0.1:8000
+  emailMode: console
+  emailFrom: FinEdgar <noreply@localhost>
+  smtpHost: ""
+  smtpPort: "587"
+  smtpUsername: ""
+  smtpStarttls: "1"
+
+secrets:
+  create: true
+  existingSecret: ""
+  secUserAgent: FinEdgar Kubernetes Lab local@example.com
+  authSecret: change-me-local-k8s-auth-secret
+  smtpPassword: ""
+  hfToken: ""
+  wandbApiKey: ""
+
+ollama:
+  image:
+    repository: ollama/ollama
+    tag: latest
+    pullPolicy: IfNotPresent
+  port: 11434
+  model: qwen2.5:0.5b
+  pullModelJob:
+    enabled: true
+  resources:
+    requests:
+      cpu: 500m
+      memory: 1Gi
+    limits:
+      cpu: "2"
+      memory: 4Gi
+  persistence:
+    size: 8Gi
+  gpu:
+    enabled: false
+    count: 1
+
+persistence:
+  data:
+    size: 8Gi
+  outputs:
+    size: 2Gi
+  hfCache:
+    size: 6Gi
+  torchCache:
+    size: 4Gi
+  storageClassName: ""
+
+postgres:
+  cnpg:
+    enabled: true
+    instances: 1
+    storageSize: 2Gi
+  user: finedgar
+  database: finedgar
+  password: change-me-local-postgres-password
+
+gateway:
+  enabled: true
+  className: traefik
+  host: finedgar.localhost
+  parentName: finedgar-gateway
+  port: 8000
+
+jobs:
+  migrate:
+    enabled: true
+  dataBootstrap:
+    enabled: false
+    args: ["--limit", "1", "--years", "2023", "--forms", "10-K", "--limit-per-form", "1"]
+  indexBuilder:
+    enabled: false
+    args: []
+  eval:
+    enabled: false
+    args: ["--limit", "5"]
+  cron:
+    enabled: false
+    schedule: "0 7 * * 1"
+
+observability:
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: false
+      interval: 30s
+  tracing:
+    enabled: false
+    otlpEndpoint: http://otel-collector.observability:4317
+
+gpuProfile:
+  enabled: false
+  trainJob:
+    enabled: false
+    configPath: model/configs/qlora_e4b.yaml

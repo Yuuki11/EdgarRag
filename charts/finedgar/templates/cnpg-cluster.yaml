@@ -1,0 +1,21 @@
+{{- if .Values.postgres.cnpg.enabled }}
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: {{ include "finedgar.fullname" . }}-postgres
+  labels:
+    {{- include "finedgar.labels" . | nindent 4 }}
+spec:
+  instances: {{ .Values.postgres.cnpg.instances }}
+  storage:
+    size: {{ .Values.postgres.cnpg.storageSize }}
+    {{- if .Values.persistence.storageClassName }}
+    storageClass: {{ .Values.persistence.storageClassName | quote }}
+    {{- end }}
+  bootstrap:
+    initdb:
+      database: {{ .Values.postgres.database }}
+      owner: {{ .Values.postgres.user }}
+      secret:
+        name: {{ include "finedgar.secretName" . }}
+{{- end }}

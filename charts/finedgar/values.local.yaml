@@ -1,0 +1,26 @@
+image:
+  repository: k3d-finedgar-registry.localhost:5001/finedgar-web
+  tag: latest
+
+runtimeImage:
+  repository: k3d-finedgar-registry.localhost:5001/finedgar-runtime
+  tag: latest
+
+trainImage:
+  repository: k3d-finedgar-registry.localhost:5001/finedgar-train
+  tag: latest
+
+config:
+  ollamaModel: qwen2.5:0.5b
+  forceCpu: "1"
+  authCookieSecure: "0"
+  publicBaseUrl: http://finedgar.localhost
+
+ollama:
+  model: qwen2.5:0.5b
+
+postgres:
+  password: local-postgres-password
+
+secrets:
+  authSecret: local-kubernetes-auth-secret-change-before-real-use
