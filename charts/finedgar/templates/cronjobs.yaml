@@ -1,0 +1,38 @@
+{{- if .Values.jobs.cron.enabled }}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "finedgar.fullname" . }}-eval-smoke
+  labels:
+    {{- include "finedgar.labels" . | nindent 4 }}
+spec:
+  schedule: {{ .Values.jobs.cron.schedule | quote }}
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+            - name: eval-smoke
+              image: "{{ .Values.runtimeImage.repository }}:{{ .Values.runtimeImage.tag }}"
+              imagePullPolicy: {{ .Values.runtimeImage.pullPolicy }}
+              command: ["python", "scripts/run_financebench_eval.py"]
+              args: ["--limit", "5", "--output", "outputs/eval_runs/eval_k8s_cron.json"]
+              envFrom:
+                - configMapRef:
+                    name: {{ include "finedgar.fullname" . }}-config
+                - secretRef:
+                    name: {{ include "finedgar.secretName" . }}
+              volumeMounts:
+                - name: data
+                  mountPath: /app/data
+                - name: outputs
+                  mountPath: /app/outputs
+          volumes:
+            - name: data
+              persistentVolumeClaim:
+                claimName: {{ include "finedgar.fullname" . }}-data
+            - name: outputs
+              persistentVolumeClaim:
+                claimName: {{ include "finedgar.fullname" . }}-outputs
+{{- end }}

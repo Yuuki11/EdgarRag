@@ -1,0 +1,7 @@
+config:
+  ollamaModel: finedgar
+
+ollama:
+  model: finedgar
+  pullModelJob:
+    enabled: false

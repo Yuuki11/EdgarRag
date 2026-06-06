@@ -1,0 +1,31 @@
+{{- if .Values.ollama.pullModelJob.enabled }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "finedgar.fullname" . }}-ollama-pull
+  labels:
+    {{- include "finedgar.labels" . | nindent 4 }}
+    app.kubernetes.io/component: ollama-model
+spec:
+  backoffLimit: 2
+  template:
+    metadata:
+      labels:
+        {{- include "finedgar.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/component: ollama-model
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - name: pull-model
+          image: "{{ .Values.ollama.image.repository }}:{{ .Values.ollama.image.tag }}"
+          imagePullPolicy: {{ .Values.ollama.image.pullPolicy }}
+          env:
+            - name: OLLAMA_HOST
+              value: http://{{ include "finedgar.fullname" . }}-ollama:{{ .Values.ollama.port }}
+          command:
+            - sh
+            - -c
+            - |
+              until ollama list >/dev/null 2>&1; do sleep 5; done
+              ollama pull {{ .Values.ollama.model | quote }}
+{{- end }}

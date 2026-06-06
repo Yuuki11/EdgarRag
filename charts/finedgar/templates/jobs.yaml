@@ -1,0 +1,223 @@
+{{- if .Values.jobs.migrate.enabled }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "finedgar.fullname" . }}-db-migrate
+  labels:
+    {{- include "finedgar.labels" . | nindent 4 }}
+    app.kubernetes.io/component: db-migrate
+  annotations:
+    "helm.sh/hook": post-install,post-upgrade
+    "helm.sh/hook-delete-policy": before-hook-creation
+spec:
+  backoffLimit: 2
+  template:
+    spec:
+      restartPolicy: OnFailure
+      initContainers:
+        - name: wait-postgres
+          image: postgres:18-alpine
+          envFrom:
+            - secretRef:
+                name: {{ include "finedgar.secretName" . }}
+          command:
+            - sh
+            - -c
+            - |
+              until pg_isready -h {{ include "finedgar.postgresHost" . }} -U "$POSTGRES_USER" -d "$POSTGRES_DB"; do sleep 5; done
+      containers:
+        - name: migrate
+          image: "{{ .Values.runtimeImage.repository }}:{{ .Values.runtimeImage.tag }}"
+          imagePullPolicy: {{ .Values.runtimeImage.pullPolicy }}
+          command: ["alembic", "upgrade", "head"]
+          envFrom:
+            - secretRef:
+                name: {{ include "finedgar.secretName" . }}
+---
+{{- end }}
+{{- if .Values.jobs.dataBootstrap.enabled }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "finedgar.fullname" . }}-data-bootstrap
+  labels:
+    {{- include "finedgar.labels" . | nindent 4 }}
+    app.kubernetes.io/component: data-bootstrap
+  annotations:
+    "helm.sh/hook": post-install,post-upgrade
+    "helm.sh/hook-delete-policy": before-hook-creation
+spec:
+  backoffLimit: 1
+  template:
+    spec:
+      restartPolicy: Never
+      initContainers:
+        - name: seed-data
+          image: "{{ .Values.runtimeImage.repository }}:{{ .Values.runtimeImage.tag }}"
+          imagePullPolicy: {{ .Values.runtimeImage.pullPolicy }}
+          command:
+            - sh
+            - -c
+            - |
+              mkdir -p /seed-data
+              cp -an /app/data/. /seed-data/
+          volumeMounts:
+            - name: data
+              mountPath: /seed-data
+      containers:
+        - name: data-bootstrap
+          image: "{{ .Values.runtimeImage.repository }}:{{ .Values.runtimeImage.tag }}"
+          imagePullPolicy: {{ .Values.runtimeImage.pullPolicy }}
+          command: ["python", "scripts/bootstrap_data.py"]
+          args: {{ toJson .Values.jobs.dataBootstrap.args }}
+          envFrom:
+            - configMapRef:
+                name: {{ include "finedgar.fullname" . }}-config
+            - secretRef:
+                name: {{ include "finedgar.secretName" . }}
+          volumeMounts:
+            - name: data
+              mountPath: /app/data
+            - name: outputs
+              mountPath: /app/outputs
+            - name: hf-cache
+              mountPath: /cache/huggingface
+            - name: torch-cache
+              mountPath: /cache/torch
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: {{ include "finedgar.fullname" . }}-data
+        - name: outputs
+          persistentVolumeClaim:
+            claimName: {{ include "finedgar.fullname" . }}-outputs
+        - name: hf-cache
+          persistentVolumeClaim:
+            claimName: {{ include "finedgar.fullname" . }}-hf-cache
+        - name: torch-cache
+          persistentVolumeClaim:
+            claimName: {{ include "finedgar.fullname" . }}-torch-cache
+---
+{{- end }}
+{{- if .Values.jobs.indexBuilder.enabled }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "finedgar.fullname" . }}-index-builder
+  labels:
+    {{- include "finedgar.labels" . | nindent 4 }}
+    app.kubernetes.io/component: index-builder
+  annotations:
+    "helm.sh/hook": post-install,post-upgrade
+    "helm.sh/hook-delete-policy": before-hook-creation
+spec:
+  backoffLimit: 1
+  template:
+    spec:
+      restartPolicy: Never
+      initContainers:
+        - name: seed-data
+          image: "{{ .Values.runtimeImage.repository }}:{{ .Values.runtimeImage.tag }}"
+          imagePullPolicy: {{ .Values.runtimeImage.pullPolicy }}
+          command:
+            - sh
+            - -c
+            - |
+              mkdir -p /seed-data
+              cp -an /app/data/. /seed-data/
+          volumeMounts:
+            - name: data
+              mountPath: /seed-data
+      containers:
+        - name: index-builder
+          image: "{{ .Values.runtimeImage.repository }}:{{ .Values.runtimeImage.tag }}"
+          imagePullPolicy: {{ .Values.runtimeImage.pullPolicy }}
+          command: ["python", "scripts/build_vector_index.py"]
+          args: {{ toJson .Values.jobs.indexBuilder.args }}
+          envFrom:
+            - configMapRef:
+                name: {{ include "finedgar.fullname" . }}-config
+            - secretRef:
+                name: {{ include "finedgar.secretName" . }}
+          volumeMounts:
+            - name: data
+              mountPath: /app/data
+            - name: hf-cache
+              mountPath: /cache/huggingface
+            - name: torch-cache
+              mountPath: /cache/torch
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: {{ include "finedgar.fullname" . }}-data
+        - name: hf-cache
+          persistentVolumeClaim:
+            claimName: {{ include "finedgar.fullname" . }}-hf-cache
+        - name: torch-cache
+          persistentVolumeClaim:
+            claimName: {{ include "finedgar.fullname" . }}-torch-cache
+---
+{{- end }}
+{{- if .Values.jobs.eval.enabled }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "finedgar.fullname" . }}-eval
+  labels:
+    {{- include "finedgar.labels" . | nindent 4 }}
+    app.kubernetes.io/component: eval
+  annotations:
+    "helm.sh/hook": post-install,post-upgrade
+    "helm.sh/hook-delete-policy": before-hook-creation
+spec:
+  backoffLimit: 1
+  template:
+    spec:
+      restartPolicy: Never
+      initContainers:
+        - name: seed-data
+          image: "{{ .Values.runtimeImage.repository }}:{{ .Values.runtimeImage.tag }}"
+          imagePullPolicy: {{ .Values.runtimeImage.pullPolicy }}
+          command:
+            - sh
+            - -c
+            - |
+              mkdir -p /seed-data
+              cp -an /app/data/. /seed-data/
+          volumeMounts:
+            - name: data
+              mountPath: /seed-data
+      containers:
+        - name: eval
+          image: "{{ .Values.runtimeImage.repository }}:{{ .Values.runtimeImage.tag }}"
+          imagePullPolicy: {{ .Values.runtimeImage.pullPolicy }}
+          command: ["python", "scripts/run_financebench_eval.py"]
+          args: {{ toJson (concat (list "--output" "outputs/eval_runs/eval_k8s.json") .Values.jobs.eval.args) }}
+          envFrom:
+            - configMapRef:
+                name: {{ include "finedgar.fullname" . }}-config
+            - secretRef:
+                name: {{ include "finedgar.secretName" . }}
+          volumeMounts:
+            - name: data
+              mountPath: /app/data
+            - name: outputs
+              mountPath: /app/outputs
+            - name: hf-cache
+              mountPath: /cache/huggingface
+            - name: torch-cache
+              mountPath: /cache/torch
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: {{ include "finedgar.fullname" . }}-data
+        - name: outputs
+          persistentVolumeClaim:
+            claimName: {{ include "finedgar.fullname" . }}-outputs
+        - name: hf-cache
+          persistentVolumeClaim:
+            claimName: {{ include "finedgar.fullname" . }}-hf-cache
+        - name: torch-cache
+          persistentVolumeClaim:
+            claimName: {{ include "finedgar.fullname" . }}-torch-cache
+{{- end }}

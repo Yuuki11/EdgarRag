@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "finedgar.fullname" . }}-ollama
+  labels:
+    {{- include "finedgar.labels" . | nindent 4 }}
+    app.kubernetes.io/component: ollama
+spec:
+  serviceName: {{ include "finedgar.fullname" . }}-ollama
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "finedgar.selectorLabels" . | nindent 6 }}
+      app.kubernetes.io/component: ollama
+  template:
+    metadata:
+      labels:
+        {{- include "finedgar.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/component: ollama
+    spec:
+      containers:
+        - name: ollama
+          image: "{{ .Values.ollama.image.repository }}:{{ .Values.ollama.image.tag }}"
+          imagePullPolicy: {{ .Values.ollama.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.ollama.port }}
+          readinessProbe:
+            exec:
+              command: ["ollama", "list"]
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            timeoutSeconds: 5
+          livenessProbe:
+            exec:
+              command: ["ollama", "list"]
+            initialDelaySeconds: 30
+            periodSeconds: 20
+            timeoutSeconds: 5
+          resources:
+            {{- toYaml .Values.ollama.resources | nindent 12 }}
+          volumeMounts:
+            - name: ollama-data
+              mountPath: /root/.ollama
+      {{- if .Values.ollama.gpu.enabled }}
+      nodeSelector:
+        nvidia.com/gpu.present: "true"
+      {{- end }}
+  volumeClaimTemplates:
+    - metadata:
+        name: ollama-data
+        labels:
+          {{- include "finedgar.labels" . | nindent 10 }}
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        {{- if .Values.persistence.storageClassName }}
+        storageClassName: {{ .Values.persistence.storageClassName | quote }}
+        {{- end }}
+        resources:
+          requests:
+            storage: {{ .Values.ollama.persistence.size }}
