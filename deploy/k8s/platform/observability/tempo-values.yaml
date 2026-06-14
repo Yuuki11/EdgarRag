@@ -1,0 +1,16 @@
+tempo:
+  retention: 24h
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 1Gi
+
+service:
+  type: ClusterIP
+
+persistence:
+  enabled: true
+  size: 2Gi

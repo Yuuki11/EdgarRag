@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: finedgar-dashboard
+  labels:
+    grafana_dashboard: "1"
+data:
+  finedgar.json: |
+    {
+      "title": "FinEdgar Local Kubernetes",
+      "schemaVersion": 39,
+      "version": 1,
+      "refresh": "10s",
+      "panels": [
+        {
+          "type": "stat",
+          "title": "HTTP Requests",
+          "gridPos": {"h": 6, "w": 6, "x": 0, "y": 0},
+          "targets": [{"expr": "sum(rate(finedgar_http_requests_total[5m]))"}]
+        },
+        {
+          "type": "timeseries",
+          "title": "HTTP p95 Latency",
+          "gridPos": {"h": 6, "w": 9, "x": 6, "y": 0},
+          "targets": [{"expr": "histogram_quantile(0.95, sum(rate(finedgar_http_request_duration_seconds_bucket[5m])) by (le))"}]
+        },
+        {
+          "type": "timeseries",
+          "title": "Chat p95 Latency",
+          "gridPos": {"h": 6, "w": 9, "x": 15, "y": 0},
+          "targets": [{"expr": "histogram_quantile(0.95, sum(rate(finedgar_chat_duration_seconds_bucket[5m])) by (le, route))"}]
+        },
+        {
+          "type": "timeseries",
+          "title": "Ollama p95 Latency",
+          "gridPos": {"h": 6, "w": 12, "x": 0, "y": 6},
+          "targets": [{"expr": "histogram_quantile(0.95, sum(rate(finedgar_ollama_request_duration_seconds_bucket[5m])) by (le))"}]
+        },
+        {
+          "type": "timeseries",
+          "title": "Web Replicas",
+          "gridPos": {"h": 6, "w": 12, "x": 12, "y": 6},
+          "targets": [{"expr": "kube_deployment_status_replicas{deployment=~\".*finedgar.*web\"}"}]
+        }
+      ]
+    }

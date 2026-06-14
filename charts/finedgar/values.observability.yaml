@@ -1,0 +1,9 @@
+observability:
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+      interval: 15s
+  tracing:
+    enabled: true
+    otlpEndpoint: http://otel-collector.observability:4317
