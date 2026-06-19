@@ -1,0 +1,20 @@
+config:
+  forceCpu: "0"
+
+ollama:
+  gpu:
+    enabled: true
+    count: 1
+  resources:
+    requests:
+      cpu: "1"
+      memory: 4Gi
+    limits:
+      cpu: "4"
+      memory: 12Gi
+      nvidia.com/gpu: 1
+
+gpuProfile:
+  enabled: true
+  trainJob:
+    enabled: true

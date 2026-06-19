@@ -1,0 +1,51 @@
+{{- if and .Values.gpuProfile.enabled .Values.gpuProfile.trainJob.enabled }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "finedgar.fullname" . }}-trainer
+  labels:
+    {{- include "finedgar.labels" . | nindent 4 }}
+    app.kubernetes.io/component: trainer
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      nodeSelector:
+        nvidia.com/gpu.present: "true"
+      containers:
+        - name: trainer
+          image: "{{ .Values.trainImage.repository }}:{{ .Values.trainImage.tag }}"
+          imagePullPolicy: {{ .Values.trainImage.pullPolicy }}
+          command: ["python", "model/training/train.py", "--config", "{{ .Values.gpuProfile.trainJob.configPath }}"]
+          envFrom:
+            - configMapRef:
+                name: {{ include "finedgar.fullname" . }}-config
+            - secretRef:
+                name: {{ include "finedgar.secretName" . }}
+          resources:
+            limits:
+              nvidia.com/gpu: 1
+          volumeMounts:
+            - name: data
+              mountPath: /app/data
+            - name: outputs
+              mountPath: /app/outputs
+            - name: hf-cache
+              mountPath: /cache/huggingface
+            - name: torch-cache
+              mountPath: /cache/torch
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: {{ include "finedgar.fullname" . }}-data
+        - name: outputs
+          persistentVolumeClaim:
+            claimName: {{ include "finedgar.fullname" . }}-outputs
+        - name: hf-cache
+          persistentVolumeClaim:
+            claimName: {{ include "finedgar.fullname" . }}-hf-cache
+        - name: torch-cache
+          persistentVolumeClaim:
+            claimName: {{ include "finedgar.fullname" . }}-torch-cache
+{{- end }}
