@@ -1,0 +1,133 @@
+name: Main Branch Verify
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: main-verify-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backend-tests:
+    name: Backend tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Run backend tests
+        run: python -m pytest backend/tests/ -v
+
+  frontend-build:
+    name: Frontend build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    defaults:
+      run:
+        working-directory: webapp/frontend
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: webapp/frontend/package-lock.json
+
+      - name: Install frontend dependencies
+        run: npm ci
+
+      - name: Build frontend
+        run: npm run build
+
+  helm-verify:
+    name: Helm verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Helm
+        uses: azure/setup-helm@v4.3.1
+
+      - name: Lint chart
+        run: helm lint charts/finedgar
+
+      - name: Render default chart
+        run: helm template finedgar charts/finedgar --namespace finedgar
+
+      - name: Render local profile
+        run: helm template finedgar charts/finedgar --namespace finedgar -f charts/finedgar/values.local.yaml
+
+      - name: Render autoscaling profile
+        run: helm template finedgar charts/finedgar --namespace finedgar -f charts/finedgar/values.local.yaml -f charts/finedgar/values.autoscaling.yaml
+
+      - name: Render observability profile
+        run: helm template finedgar charts/finedgar --namespace finedgar -f charts/finedgar/values.local.yaml -f charts/finedgar/values.observability.yaml
+
+      - name: Render GPU profile
+        run: helm template finedgar charts/finedgar --namespace finedgar -f charts/finedgar/values.local.yaml -f charts/finedgar/values.gpu.yaml
+
+  docker-build:
+    name: Docker build
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    needs:
+      - backend-tests
+      - frontend-build
+      - helm-verify
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+
+      - name: Build runtime image
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          file: docker/Dockerfile.runtime
+          target: runtime
+          push: false
+          tags: finedgar-runtime:ci-${{ github.sha }}
+          cache-from: type=gha,scope=finedgar-runtime
+          cache-to: type=gha,mode=max,scope=finedgar-runtime
+
+      - name: Build web image
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          file: docker/Dockerfile.runtime
+          target: web
+          push: false
+          tags: finedgar-web:ci-${{ github.sha }}
+          cache-from: type=gha,scope=finedgar-web
+          cache-to: type=gha,mode=max,scope=finedgar-web
